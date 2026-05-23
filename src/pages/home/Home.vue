@@ -5,7 +5,7 @@
 
 <template>
 
-<h1>Portfolio ARGI</h1>
+<h1 class="text-3xl text-red-500">Proyecto Transversal</h1>
 
 
 </template>

@@ -1,8 +1,7 @@
 {
-  "author": "Pablo Armario",
-  "name": "portfolio",
+  "name": "web-transversal",
   "private": true,
-  "version": "v.1.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
