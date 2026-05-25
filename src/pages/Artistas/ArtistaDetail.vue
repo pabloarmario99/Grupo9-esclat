@@ -10,7 +10,7 @@ const artista = artistas.find(
 </script>
 
 <template>
-  <div v-if="artista">
+  <div v-if="artista" class="flex flex-col ml-10 ">
     <h1>{{ artista.nombre }}</h1>
     <p>{{ artista.descripcion }}</p>
   </div>
