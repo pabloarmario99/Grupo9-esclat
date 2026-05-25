@@ -1,41 +1,53 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-// Páginas del Festival ESCLAT
+// páginas
 import Home from "@/pages/home/Home.vue";
 import Esclat from "@/pages/Esclat/Esclat.vue";
 import Programa from "@/pages/Programa/Programa.vue";
 import Artistas from "@/pages/Artistas/Artistas.vue";
 import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue";
 
+// layout
+import Layout from "@/pages/Layout/Layout.vue";
+
 export const router = createRouter({
-    history: createWebHashHistory(import.meta.env.BASE_URL),
-    routes: [
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: [
+    // Home SIN layout
+    {
+      path: "/",
+      name: "home",
+      component: Home
+    },
+
+    // Todas estas CON layout
+    {
+      path: "/",
+      component: Layout,
+      children: [
         {
-            path: "/",
-            name: "home",
-            component: Home
+          path: "esclat",
+          name: "esclat",
+          component: Esclat
         },
         {
-            path: "/esclat",
-            name: "esclat",
-            component: Esclat
+          path: "programa",
+          name: "programa",
+          component: Programa
         },
         {
-            path: "/programa",
-            name: "programa",
-            component: Programa
+          path: "artistas",
+          name: "artistas",
+          component: Artistas
         },
         {
-            path: "/artistas",
-            name: "artistas",
-            component: Artistas
-        },
-        {
-            path: "/entradas-acceso",
-            name: "entradas-acceso",
-            component: EntradasAcceso
-        },
-        // Redirección por si el usuario escribe una ruta que no existe
-        { path: "/:pathMatch(.*)*", redirect: "/" }
-    ]
+          path: "entradas-acceso",
+          name: "entradas-acceso",
+          component: EntradasAcceso
+        }
+      ]
+    },
+
+    { path: "/:pathMatch(.*)*", redirect: "/" }
+  ]
 });
