@@ -1,12 +1,15 @@
-<template>
-	<section class="page">
-		<h1>Artistas</h1>
-		<p>Contenido de la pagina Artistas en construccion.</p>
-	</section>
-</template>
+<script setup lang="ts">
+import { RouterLink } from "vue-router"
+import { artistas } from "@/data/artistas"
+</script>
 
-<style scoped>
-.page {
-	padding: 2rem;
-}
-</style>
+<template>
+  <div>
+
+    <div v-for="artista in artistas" :key="artista.id">
+      <RouterLink :to="`/artistas/${artista.id}`">
+        {{ artista.nombre }}
+      </RouterLink>
+    </div>
+  </div>
+</template>

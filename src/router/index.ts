@@ -5,6 +5,7 @@ import Home from "@/pages/home/Home.vue";
 import Esclat from "@/pages/Esclat/Esclat.vue";
 import Programa from "@/pages/Programa/Programa.vue";
 import Artistas from "@/pages/Artistas/Artistas.vue";
+import ArtistaDetail from "@/pages/Artistas/ArtistaDetail.vue";
 import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue";
 
 // layout
@@ -36,10 +37,26 @@ export const router = createRouter({
           component: Programa
         },
         {
-          path: "artistas",
+  path: "/",
+  component: Layout,
+  children: [
+    {
+      path: "artistas",
+      children: [
+        {
+          path: "",
           name: "artistas",
           component: Artistas
         },
+        {
+          path: ":id",
+          name: "artista-detail",
+          component: ArtistaDetail
+        }
+      ]
+    }
+  ]
+},
         {
           path: "entradas-acceso",
           name: "entradas-acceso",
