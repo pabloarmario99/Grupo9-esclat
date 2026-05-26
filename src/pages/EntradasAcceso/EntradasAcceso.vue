@@ -31,7 +31,7 @@ interface DatosUsuario {
 }
 
 // Datos del evento
-const aforoMaximo = 100
+const aforoMaximo = 500
 const entradasVendidas = ref<number>(0)
 
 // Estado del formulario
@@ -178,7 +178,7 @@ const enviarCompra = async (): Promise<void> => {
       <!-- Contador de aforo -->
       <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8 text-center">
         <p class="text-lg font-semibold text-blue-800">
-          🎟️ Aforo disponible: {{ aforoDisponible }} / {{ aforoMaximo }} entradas
+          Aforo disponible: {{ aforoDisponible }} / {{ aforoMaximo }} entradas
         </p>
         <p class="text-sm text-blue-600 mt-1">
           ¡Últimas entradas! No te quedes sin la tuya
@@ -189,22 +189,22 @@ const enviarCompra = async (): Promise<void> => {
       <div class="grid md:grid-cols-2 gap-6 mb-8">
         <!-- Tipos de entrada -->
         <div class="bg-white rounded-lg shadow-lg p-6">
-          <h2 class="text-2xl font-bold mb-4">🎫 Tipos de entrada</h2>
+          <h2 class="text-2xl font-bold mb-4"> Tipos de entrada</h2>
           <div class="space-y-3">
             <div class="flex justify-between items-center border-b pb-2">
-              <span>🌅 Medio día (tarde)</span>
-              <span class="font-bold text-green-600">3€</span>
+              <span>Medio día (tarde)</span>
+              <span class="font-bold text-[#ef5da2]">3€</span>
             </div>
             <div class="flex justify-between items-center border-b pb-2">
-              <span>🎪 Día completo</span>
-              <span class="font-bold text-green-600">5€</span>
+              <span>Día completo</span>
+              <span class="font-bold text-[#ef5da2]">5€</span>
             </div>
             <div class="flex justify-between items-center border-b pb-2">
-              <span>🔥 Pack especial 3 días completos</span>
-              <span class="font-bold text-green-600">12€</span>
+              <span>Pack especial 3 días completos</span>
+              <span class="font-bold text-[#ef5da2]">12€</span>
             </div>
             <div class="flex justify-between items-center pt-2">
-              <span>🎁 Merchandising oficial</span>
+              <span>Merchandising oficial</span>
               <span class="font-bold text-purple-600">+1€</span>
             </div>
           </div>
@@ -212,7 +212,7 @@ const enviarCompra = async (): Promise<void> => {
         
         <!-- Horarios -->
         <div class="bg-white rounded-lg shadow-lg p-6">
-          <h2 class="text-2xl font-bold mb-4">📅 Horarios</h2>
+          <h2 class="text-2xl font-bold mb-4">Horarios</h2>
           <div class="space-y-3">
             <div>
               <p class="font-semibold">Viernes 20</p>
@@ -234,7 +234,7 @@ const enviarCompra = async (): Promise<void> => {
     <!-- FORMULARIO DE COMPRA -->
     <div class="bg-gray-100 rounded-xl py-12 px-4">
       <div class="max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">🎟️ Comprar entradas</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">Comprar entradas</h2>
         
         <form @submit.prevent="enviarCompra" class="space-y-6">
           <!-- Datos personales -->
@@ -315,21 +315,21 @@ const enviarCompra = async (): Promise<void> => {
           <div class="bg-white p-6 rounded-lg shadow">
             <label class="flex items-center justify-between cursor-pointer">
               <div>
-                <span class="font-semibold">🎁 Merchandising oficial</span>
+                <span class="font-semibold">Merchandising oficial</span>
                 <p class="text-sm text-gray-600">Pulsera + pegatinas + llavero (1€)</p>
               </div>
               <input 
                 type="checkbox" 
                 v-model="incluyeMerch" 
-                class="w-5 h-5 text-green-600"
+                class="w-5 h-5 text-[#ef5da2]"
               />
             </label>
           </div>
           
           <!-- Resumen y precio total -->
-          <div class="bg-linear-to-r from-green-500 to-green-600 p-6 rounded-lg shadow text-white">
+          <div class="bg-[#ef5da2] p-6 rounded-lg shadow text-white">
             <div class="flex justify-between items-center text-xl font-bold">
-              <span>💰 Total a pagar:</span>
+              <span>Total a pagar:</span>
               <span>{{ precioTotal }}€</span>
             </div>
             <p class="text-sm mt-2 opacity-90">
@@ -342,7 +342,7 @@ const enviarCompra = async (): Promise<void> => {
             type="submit"
             class="w-full bg-black hover:bg-gray-800 text-white text-lg py-6"
           >
-            🎫 Confirmar compra
+            Confirmar compra
           </Button>
           
           <p class="text-center text-sm text-gray-600 mt-4">

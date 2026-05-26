@@ -5,7 +5,7 @@ import { RouterView, RouterLink } from 'vue-router'
 <template>
   <div>
     <!-- Barra -->
-    <header class="w-full h-20 fixed top-0 left-0 z-50 flex items-center px-6">
+    <header class="bg-white w-full h-20 fixed top-0 left-0 z-50 flex items-center px-6">
       <div class="flex justify-between w-full">
   <RouterLink to="/" class="text-[#ef5da2] text-lg font-semibold transition">
     Home
