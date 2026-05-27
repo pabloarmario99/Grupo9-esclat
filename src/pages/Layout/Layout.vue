@@ -5,12 +5,12 @@ import { RouterView, RouterLink } from 'vue-router'
 <template>
   <div>
     <!-- Barra -->
-    <header class="bg-white w-full h-20 fixed top-0 left-0 z-50 flex items-center px-6">
+    <header class="bg-[#bcd432] w-full h-20 fixed top-0 left-0 z-50 flex items-center px-6">
       <div class="flex justify-between w-full">
-  <RouterLink to="/" class="text-[#ef5da2] text-lg font-semibold transition">
+  <RouterLink to="/" class="text-white text-lg font-semibold transition">
     Home
   </RouterLink>
-  <RouterLink to="/esclat" class="text-[#ef5da2] text-lg font-light transition">
+  <RouterLink to="/esclat" class="text-white text-lg font-light transition">
     Esclat
   </RouterLink>
   <RouterLink to="/programa" class="text-[#ef5da2] text-lg font-light transition">

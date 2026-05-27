@@ -10,6 +10,7 @@ import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue";
 
 // layout
 import Layout from "@/pages/Layout/Layout.vue";
+import TallerDetail from "@/pages/Artistas/TallerDetail.vue";
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -52,7 +53,12 @@ export const router = createRouter({
           path: ":id",
           name: "artista-detail",
           component: ArtistaDetail
-        }
+        },
+        {
+          path: ":id",
+          name: "taller-detail",
+          component: TallerDetail
+        },
       ]
     }
   ]
