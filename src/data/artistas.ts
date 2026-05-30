@@ -1,44 +1,72 @@
 export const artistas = [
   {
     id: 1,
-    nombre: "TRONKAS!",
-    imagen: "tronkas.png",
-    descripcion: "No te lo pierdas"
+    nombre: "Platz",
+    imagen: "grupo6.jpg",
+    descripcion: "Una propuesta fresca y enérgica que combina personalidad propia, cercanía con el público y un directo lleno de intensidad.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 2,
-    nombre: "Boletus",
+    nombre: "Las Petunias",
     imagen: "grupo1.jpg",
-    descripcion: "Tenemos hambre fernando"
+    descripcion: "Con una actitud desenfadada y una identidad muy marcada, ofrecen un espectáculo divertido, irreverente y cargado de energía.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 3,
-    nombre: "Las novias de Aarón",
+    nombre: "Boletus",
     imagen: "grupo2.jpg",
-    descripcion: "El harem de Aarón"
+    descripcion: "Una formación que apuesta por la creatividad y la experimentación, construyendo una experiencia única para cada actuación.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 4,
-    nombre: "Platz",
+    nombre: "Kadira",
     imagen: "grupo3.jpg",
-    descripcion: "Que cojonees"
+    descripcion: "Su propuesta destaca por la fuerza escénica y una personalidad artística capaz de conectar con públicos muy diversos.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 5,
-    nombre: "Kadira",
-    imagen: "grupo4.jpg",
-    descripcion: "Hello webo"
+    nombre: "Tronkas!",
+    imagen: "tronkas.png",
+    descripcion: "Un proyecto lleno de carácter que combina ritmo, energía y una puesta en escena pensada para sorprender al público.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 6,
-    nombre: "Iker Marranas",
+    nombre: "Sapiens",
     imagen: "grupo5.jpg",
-    descripcion: "Es un marrano, toca la guitarra y pinta bonito"
+    descripcion: "Una propuesta artística que fusiona sensibilidad, creatividad y una visión personal que trasciende disciplinas y formatos.",
+    actuacion: "Pendiente de confirmar"
   },
   {
     id: 7,
-    nombre: "Mar Fregonas",
-    imagen: "grupo6.jpg",
-    descripcion: "gggrl"
+    nombre: "Diamante Negro",
+    imagen: "grupo1.jpg",
+    descripcion: "Con una identidad sonora reconocible y una gran presencia escénica, ofrecen una actuación intensa y llena de matices.",
+    actuacion: "Pendiente de confirmar"
   },
+  {
+    id: 8,
+    nombre: "La Plata",
+    imagen: "grupo2.jpg",
+    descripcion: "Una de las propuestas más destacadas de la escena independiente, caracterizada por su estilo propio y su potente directo.",
+    actuacion: "Pendiente de confirmar"
+  },
+  {
+    id: 9,
+    nombre: "Las Novias de Aarón",
+    imagen: "grupo3.jpg",
+    descripcion: "Un proyecto con personalidad única que combina frescura, creatividad y una conexión especial con el público.",
+    actuacion: "Pendiente de confirmar"
+  },
+  {
+    id: 10,
+    nombre: "El Diablo de Shanghái",
+    imagen: "grupo4.jpg",
+    descripcion: "Una propuesta cargada de intensidad y carácter, capaz de transformar cada actuación en una experiencia memorable.",
+    actuacion: "Pendiente de confirmar"
+  }
 ]

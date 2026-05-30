@@ -72,7 +72,7 @@ import Autoplay from 'embla-carousel-autoplay'
       class="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 pl-2"
     >
       <RouterLink 
-        :to="`/artistas/${taller.id}`"
+        :to="`/artistas/taller/${taller.id}`"
         class="bg-[#8c61a6] hover:bg-[#67417e] p-4 block h-full text-white/0 hover:text-white transition-all"
       >
         <!-- Nombre -->

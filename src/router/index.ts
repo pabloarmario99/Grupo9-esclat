@@ -14,6 +14,7 @@ import Layout from "@/pages/Layout/Layout.vue"
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
+
   routes: [
     // HOME sin layout
     {
@@ -22,7 +23,7 @@ export const router = createRouter({
       component: Home
     },
 
-    // TODO con layout
+    // TODO lo demás con layout
     {
       path: "/",
       component: Layout,
@@ -37,6 +38,8 @@ export const router = createRouter({
           name: "programa",
           component: Programa
         },
+
+        // ARTISTAS
         {
           path: "artistas",
           name: "artistas",
@@ -47,11 +50,14 @@ export const router = createRouter({
           name: "artista-detail",
           component: ArtistaDetail
         },
+
+        // TALLERES
         {
           path: "artistas/taller/:id",
           name: "taller-detail",
           component: TallerDetail
         },
+
         {
           path: "entradas-acceso",
           name: "entradas-acceso",
@@ -60,6 +66,18 @@ export const router = createRouter({
       ]
     },
 
-    { path: "/:pathMatch(.*)*", redirect: "/" }
-  ]
+    // fallback
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/"
+    }
+  ],
+
+  // SCROLL AUTOMÁTICO ARRIBA
+  scrollBehavior(_,__, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0 }
+  }
 })
