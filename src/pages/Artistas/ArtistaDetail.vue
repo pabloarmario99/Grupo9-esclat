@@ -11,10 +11,12 @@ const artista = artistas.find(
 
 <template>
   <div v-if="artista" class="flex flex-col ml-10 my-50 ">
-    <h1>{{ artista.nombre }}</h1>
+    <h1
+    class="font-bold text-2xl"
+    >{{ artista.nombre }}</h1>
     <p>{{ artista.descripcion }}</p>
     <p>Horario: {{ artista.actuacion }}</p>
-    <RouterLink to="/artistas" class="text-red-600 hover:font-medium transition-all">
+    <RouterLink to="/artistas" class="text-[#ef5da2] hover:font-medium transition-all">
           Volver
     </RouterLink>
   </div>

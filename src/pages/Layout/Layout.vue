@@ -22,10 +22,10 @@ watch(
   <header
     class="bg-[#371e58] w-full h-20 fixed top-0 left-0 z-50 flex items-center justify-between px-6"
   >
-    <RouterLink to="/" class="hover:scale-105 transition-all">
+    <RouterLink to="/" class=" hover:scale-105 transition-all">
       <img
         src="/images/logo white.svg"
-        class="w-40 h-auto"
+        class="w-50 h-auto"
       >
     </RouterLink>
 
@@ -68,7 +68,7 @@ watch(
     </div>
   </div>
 
-  <button class="fixed bottom-4 right-4 z-50 bg-[#371e58] text-white px-4 py-2 mb-5 rounded-lg shadow-lg">
+ <button class="fixed bottom-4 right-4 z-50 bg-[#ef5da2] text-white font-medium px-4 py-2 mb-5 rounded-lg shadow-lg">
   <RouterLink to="/entradas-acceso">
     Comprar entradas
   </RouterLink>
