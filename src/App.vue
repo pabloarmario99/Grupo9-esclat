@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import CustomCursor from './components/ui/input/CustomCursor.vue';
+//import CustomCursor from './components/ui/input/CustomCursor.vue';
 
 
 

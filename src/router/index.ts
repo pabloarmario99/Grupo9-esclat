@@ -1,28 +1,28 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router"
 
 // páginas
-import Home from "@/pages/home/Home.vue";
-import Esclat from "@/pages/Esclat/Esclat.vue";
-import Programa from "@/pages/Programa/Programa.vue";
-import Artistas from "@/pages/Artistas/Artistas.vue";
-import ArtistaDetail from "@/pages/Artistas/ArtistaDetail.vue";
-import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue";
+import Home from "@/pages/home/Home.vue"
+import Esclat from "@/pages/Esclat/Esclat.vue"
+import Programa from "@/pages/Programa/Programa.vue"
+import Artistas from "@/pages/Artistas/Artistas.vue"
+import ArtistaDetail from "@/pages/Artistas/ArtistaDetail.vue"
+import TallerDetail from "@/pages/Artistas/TallerDetail.vue"
+import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue"
 
 // layout
-import Layout from "@/pages/Layout/Layout.vue";
-import TallerDetail from "@/pages/Artistas/TallerDetail.vue";
+import Layout from "@/pages/Layout/Layout.vue"
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    // Home SIN layout
+    // HOME sin layout
     {
       path: "/",
       name: "home",
       component: Home
     },
 
-    // Todas estas CON layout
+    // TODO con layout
     {
       path: "/",
       component: Layout,
@@ -38,31 +38,20 @@ export const router = createRouter({
           component: Programa
         },
         {
-  path: "/",
-  component: Layout,
-  children: [
-    {
-      path: "artistas",
-      children: [
-        {
-          path: "",
+          path: "artistas",
           name: "artistas",
           component: Artistas
         },
         {
-          path: ":id",
+          path: "artistas/:id",
           name: "artista-detail",
           component: ArtistaDetail
         },
         {
-          path: ":id",
+          path: "artistas/taller/:id",
           name: "taller-detail",
           component: TallerDetail
         },
-      ]
-    }
-  ]
-},
         {
           path: "entradas-acceso",
           name: "entradas-acceso",
@@ -73,4 +62,4 @@ export const router = createRouter({
 
     { path: "/:pathMatch(.*)*", redirect: "/" }
   ]
-});
+})
