@@ -10,8 +10,11 @@ const taller = talleres.find(
 </script>
 
 <template>
-  <div v-if="taller" class="flex flex-col ml-10 ">
+  <div v-if="taller" class="flex flex-col ml-10 my-50">
     <h1>{{ taller.nombre }}</h1>
     <p>{{ taller.descripcion }}</p>
+    <RouterLink to="/artistas" class="hover:font-medium transition-all">
+          Volver
+    </RouterLink>
   </div>
 </template>

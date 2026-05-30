@@ -78,25 +78,30 @@ watch(
     <RouterView />
   </main>
 
-  <footer class="bg-[#371e58] text-white">
+  <footer class="bg-[#371e58] text-white mt-">
     <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10">
 
-      <div class="flex flex-col gap-10 sm:flex-row sm:items-center sm:justify-center">
+      <div class="flex flex-col gap-10 md:flex-row md:items-center sm:justify-center">
       <!-- ORGANIZADORES -->
       <div>
         <h3 class="mb-4">Organiza</h3>
 
-        <div class="flex items-center gap-6">
+        <div class="flex items-center">
           <img
             src="/images/valencia.svg"
             alt="Organizador 1"
-            class=" object-contain w-20 h-auto"
+            class=" object-contain w-20 h-auto mr-6"
           />
 
           <img
             src="/images/naves.svg"
             alt="Organizador 2"
-            class="w-19 h-auto object-contain"
+            class="w-19 h-auto object-contain mr-2"
+          />
+          <img
+            src="/images/logo white.svg"
+            alt="Organizador 2"
+            class="w-25 h-auto object-contain"
           />
         </div>
       </div>
@@ -106,6 +111,16 @@ watch(
         <h3 class="mb-4">Colaboradores</h3>
 
         <div class="flex items-center gap-6">
+          <img
+            src="/images/diputacion.svg"
+            alt="Colaborador 3"
+            class="w-19 h-auto object-contain"
+          />
+          <img
+            src="/images/IVAJ.svg"
+            alt="Colaborador 3"
+            class="w-16 h-auto object-contain"
+          />
           <img
             src="/images/turia.svg"
             alt="Colaborador 1"
@@ -117,18 +132,12 @@ watch(
             alt="Colaborador 2"
             class="w-15 h-auto object-contain"
           />
-
-          <img
-            src="/images/IVAJ.svg"
-            alt="Colaborador 3"
-            class="w-16 h-auto object-contain"
-          />
         </div>
       </div>
       </div>
 
       <!-- REDES SOCIALES -->
-      <div class="flex flex-col sm:items-center sm:justify-between gap-6 border-t border-white/20 pt-6">
+      <div class="flex flex-col md:items-center md:justify-between gap-6 border-t border-white/20 pt-6">
 
         <p class="text-sm text-white/70">
           © {{ new Date().getFullYear() }} Evento. Todos los derechos reservados.
