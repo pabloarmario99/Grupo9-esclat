@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import {
   Carousel,
   CarouselContent,
@@ -91,13 +91,13 @@ import { RouterLink } from "vue-router"
           <div class="flex flex-wrap gap-4">
             <RouterLink
               to="/artistas"
-              class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-8 py-4 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200"
+              class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-8 py-4 hover:bg-white hover:text-[#eb378d] transition-all duration-200"
             >
               Ver artistas
             </RouterLink>
             <RouterLink
               to="/programa"
-              class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-8 py-4 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200"
+              class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-8 py-4 hover:bg-white hover:text-[#eb378d] transition-all duration-200"
             >
               Ver programación
             </RouterLink>
@@ -154,10 +154,10 @@ import { RouterLink } from "vue-router"
         Sigue explorando Esclat
       </p>
       <div class="relative z-10 flex flex-wrap justify-center gap-8">
-        <RouterLink to="/" class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200">Home</RouterLink>
-        <RouterLink to="/esclat" class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200">Esclat</RouterLink>
-        <RouterLink to="/artistas" class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200">Artistas</RouterLink>
-        <RouterLink to="/programa" class="inline-block bg-white text-[#eb378d] uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#371e58] hover:text-white hover:scale-105 transition-all duration-200">Programa</RouterLink>
+        <RouterLink to="/" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Home</RouterLink>
+        <RouterLink to="/esclat" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Esclat</RouterLink>
+        <RouterLink to="/artistas" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Artistas</RouterLink>
+        <RouterLink to="/programa" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Programa</RouterLink>
       </div>
     </div>
 

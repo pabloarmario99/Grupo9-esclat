@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import Button from '@/components/ui/button/Button.vue'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import {
@@ -159,7 +158,7 @@ const enviarCompra = async (): Promise<void> => {
   console.log('Compra realizada:', confirmacion)
   
   // Simular envío de email
-  alert(`✅ ¡Compra confirmada!\n\nSe ha enviado un correo a ${datosUsuario.value.email}\nTotal: ${precioTotal.value}€\n\n¡Gracias por tu compra!`)
+  alert(`¡Compra confirmada!\n\nSe ha enviado un correo a ${datosUsuario.value.email}\nTotal: ${precioTotal.value}€\n\n¡Gracias por tu compra!`)
   
   // Actualizar aforo
   entradasVendidas.value++
@@ -169,190 +168,316 @@ const enviarCompra = async (): Promise<void> => {
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-4 pt-25">
-    
-    <!-- INFORMACIÓN DE ENTRADAS -->
-    <div class="mb-12">
-      <h1 class="text-4xl font-bold text-center mb-8">Entradas y Acceso</h1>
-      
-      <!-- Contador de aforo -->
-      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8 text-center">
-        <p class="text-lg font-semibold text-blue-800">
-          Aforo disponible: {{ aforoDisponible }} / {{ aforoMaximo }} entradas
+  <div class="w-full mt-20 overflow-x-hidden bg-[#eb378d] text-white">
+    <!-- HERO SECTION - ROSA -->
+    <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+      <img
+        src="/images/estampado_esclat.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+      />
+
+      <div class="relative z-10 mx-auto max-w-6xl">
+        <p class="mb-3 text-base font-medium uppercase text-white/90">
+          Entradas y acceso
         </p>
-        <p class="text-sm text-blue-600 mt-1">
-          ¡Últimas entradas! No te quedes sin la tuya
+        <h1 class="max-w-4xl text-3xl font-semibold uppercase leading-none tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          Reserva tu lugar en Esclat
+        </h1>
+        <p class="mt-5 max-w-2xl text-base font-medium leading-relaxed text-white/90">
+          Elige tus días, suma el merch si te apetece y recibe tu entrada por correo para formar parte del festival.
         </p>
       </div>
-      
-      <!-- Tabla de precios -->
-      <div class="grid md:grid-cols-2 gap-6 mb-8">
-        <!-- Tipos de entrada -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
-          <h2 class="text-2xl font-bold mb-4"> Tipos de entrada</h2>
+    </section>
+
+    <!-- AFORO SECTION - MORADO -->
+    <section class="relative bg-[#371e58] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+      <img
+        src="/images/estampado_esclat.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-25 mix-blend-multiply"
+      />
+
+      <div class="relative z-10 mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1.2fr] md:items-end">
+        <h2 class="text-4xl font-semibold uppercase tracking-tight text-[#eb378d] sm:text-5xl md:text-6xl">
+          Aforo disponible
+        </h2>
+
+        <div class="border-2 border-[#bcd432] px-6 py-8 text-center md:px-10">
+          <p class="text-3xl font-semibold uppercase leading-none tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+            {{ aforoDisponible }} / {{ aforoMaximo }}
+          </p>
+          <p class="mt-4 text-base font-medium uppercase leading-relaxed text-[#bcd432]">
+            Últimas entradas disponibles
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING + SCHEDULE - ROSA -->
+    <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+      <img
+        src="/images/estampado_esclat.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+      />
+
+      <div class="relative z-10 mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:gap-28">
+        <div class="w-full lg:mx-auto lg:max-w-md">
+          <h2 class="mb-4 text-4xl font-semibold uppercase tracking-tight sm:text-5xl md:text-6xl">
+            Tipos de entrada
+          </h2>
+
           <div class="space-y-3">
-            <div class="flex justify-between items-center border-b pb-2">
-              <span>Medio día (tarde)</span>
-              <span class="font-bold text-[#eb378d]">3€</span>
+            <div class="flex items-center justify-between gap-6 py-3">
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Medio día (tarde)</span>
+              <span class="text-3xl font-semibold text-white">3€</span>
             </div>
-            <div class="flex justify-between items-center border-b pb-2">
-              <span>Día completo</span>
-              <span class="font-bold text-[#eb378d]">5€</span>
+            <div class="flex items-center justify-between gap-6 py-3">
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Día completo</span>
+              <span class="text-3xl font-semibold text-white">5€</span>
             </div>
-            <div class="flex justify-between items-center border-b pb-2">
-              <span>Pack especial 3 días completos</span>
-              <span class="font-bold text-[#eb378d]">12€</span>
+            <div class="flex items-center justify-between gap-6 py-3">
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Pack especial 3 días completos</span>
+              <span class="text-3xl font-semibold text-white">12€</span>
             </div>
-            <div class="flex justify-between items-center pt-2">
-              <span>Merchandising oficial</span>
-              <span class="font-bold text-purple-600">+1€</span>
+            <div class="flex items-center justify-between gap-6 py-3">
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Merchandising oficial</span>
+              <span class="text-3xl font-semibold text-white">+1€</span>
             </div>
           </div>
         </div>
-        
-        <!-- Horarios -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
-          <h2 class="text-2xl font-bold mb-4">Horarios</h2>
+
+        <div class="w-full lg:mx-auto lg:max-w-md">
+          <h2 class="mb-4 text-4xl font-semibold uppercase tracking-tight sm:text-5xl md:text-6xl">
+            Horarios
+          </h2>
+
           <div class="space-y-3">
-            <div>
-              <p class="font-semibold">Viernes 20</p>
-              <p class="text-sm text-gray-600">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+            <div class="py-3">
+              <p class="text-xl font-semibold uppercase tracking-tight text-white">Viernes 20</p>
+              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
             </div>
-            <div>
-              <p class="font-semibold">Sábado 21</p>
-              <p class="text-sm text-gray-600">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+            <div class="py-3">
+              <p class="text-xl font-semibold uppercase tracking-tight text-white">Sábado 21</p>
+              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
             </div>
-            <div>
-              <p class="font-semibold">Domingo 22</p>
-              <p class="text-sm text-gray-600">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+            <div class="py-3">
+              <p class="text-xl font-semibold uppercase tracking-tight text-white">Domingo 22</p>
+              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- FORMULARIO DE COMPRA -->
-    <div class="bg-gray-100 rounded-xl py-12 px-4">
-      <div class="max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">Comprar entradas</h2>
-        
-        <form @submit.prevent="enviarCompra" class="space-y-6">
-          <!-- Datos personales -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-4">Datos personales</h3>
-            <div class="space-y-4">
-              <div>
-                <Label>Nombre</Label>
-                <Input v-model="datosUsuario.nombre" required />
-              </div>
-              <div>
-                <Label>Apellidos</Label>
-                <Input v-model="datosUsuario.apellidos" required />
-              </div>
-              <div>
-                <Label>Correo electrónico</Label>
-                <Input type="email" v-model="datosUsuario.email" required />
-              </div>
-              <div>
-                <Label>Teléfono</Label>
-                <Input type="tel" v-model="datosUsuario.telefono" required />
-              </div>
-            </div>
-          </div>
-          
-          <!-- Selección de entradas por día -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-4">Selecciona tus entradas</h3>
-            <div class="space-y-4">
-              <!-- Viernes -->
-              <div>
-                <Label class="font-semibold">Viernes</Label>
-                <Select @update:model-value="(val: any) => actualizarPrecio('viernes', val)">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar entrada" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ninguno">Sin entrada</SelectItem>
-                    <SelectItem value="medio">Medio día - 3€</SelectItem>
-                    <SelectItem value="completo">Día completo - 5€</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <!-- Sábado -->
-              <div>
-                <Label class="font-semibold">Sábado</Label>
-                <Select @update:model-value="(val: any) => actualizarPrecio('sabado', val)">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar entrada" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ninguno">Sin entrada</SelectItem>
-                    <SelectItem value="medio">Medio día - 3€</SelectItem>
-                    <SelectItem value="completo">Día completo - 5€</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <!-- Domingo -->
-              <div>
-                <Label class="font-semibold">Domingo</Label>
-                <Select @update:model-value="(val: any) => actualizarPrecio('domingo', val)">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar entrada" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ninguno">Sin entrada</SelectItem>
-                    <SelectItem value="medio">Medio día - 3€</SelectItem>
-                    <SelectItem value="completo">Día completo - 5€</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Merchandising -->
-          <div class="bg-white p-6 rounded-lg shadow">
-            <label class="flex items-center justify-between cursor-pointer">
-              <div>
-                <span class="font-semibold">Merchandising oficial</span>
-                <p class="text-sm text-gray-600">Pulsera + pegatinas + llavero (1€)</p>
-              </div>
-              <input 
-                type="checkbox" 
-                v-model="incluyeMerch" 
-                class="w-5 h-5 text-[#eb378d]"
-              />
-            </label>
-          </div>
-          
-          <!-- Resumen y precio total -->
-          <div class="bg-[#eb378d] p-6 rounded-lg shadow text-white">
-            <div class="flex justify-between items-center text-xl font-bold">
-              <span>Total a pagar:</span>
-              <span>{{ precioTotal }}€</span>
-            </div>
-            <p class="text-sm mt-2 opacity-90">
-              * El precio incluye todos los impuestos
+    </section>
+
+    <form @submit.prevent="enviarCompra">
+      <!-- FORM SECTION - MORADO -->
+      <section class="relative bg-[#371e58] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+        <img
+          src="/images/estampado_esclat.png"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-25 mix-blend-multiply"
+        />
+
+        <div class="relative z-10 mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p class="mb-4 text-base font-medium uppercase leading-relaxed text-white/90">
+              Compra
+            </p>
+            <h2 class="text-4xl font-semibold uppercase tracking-tight text-[#eb378d] sm:text-5xl md:text-6xl">
+              Tus datos y entradas
+            </h2>
+            <p class="mt-6 max-w-md text-base font-medium leading-relaxed text-white/90">
+              Completa la información necesaria para recibir tu confirmación de acceso.
             </p>
           </div>
-          
-          <!-- Botón de compra -->
-          <Button 
-            type="submit"
-            class="w-full bg-black hover:bg-gray-800 text-white text-lg py-6"
-          >
-            Confirmar compra
-          </Button>
-          
-          <p class="text-center text-sm text-gray-600 mt-4">
-            Al confirmar, recibirás las entradas en tu correo electrónico
-          </p>
-        </form>
-      </div>
-    </div>
+
+          <div class="space-y-14">
+            <!-- Datos personales -->
+            <div>
+              <h3 class="mb-6 text-2xl font-semibold uppercase tracking-tight text-white">
+                Datos personales
+              </h3>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <Label class="festival-label">Nombre</Label>
+                  <Input v-model="datosUsuario.nombre" required class="festival-input" />
+                </div>
+                <div>
+                  <Label class="festival-label">Apellidos</Label>
+                  <Input v-model="datosUsuario.apellidos" required class="festival-input" />
+                </div>
+                <div>
+                  <Label class="festival-label">Correo electrónico</Label>
+                  <Input type="email" v-model="datosUsuario.email" required class="festival-input" />
+                </div>
+                <div>
+                  <Label class="festival-label">Teléfono</Label>
+                  <Input type="tel" v-model="datosUsuario.telefono" required class="festival-input" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Selección de entradas por día -->
+            <div>
+              <h3 class="mb-6 text-2xl font-semibold uppercase tracking-tight text-white">
+                Selecciona tus entradas
+              </h3>
+              <div class="grid gap-5 sm:grid-cols-3">
+                <!-- Viernes -->
+                <div>
+                  <Label class="festival-label">Viernes</Label>
+                  <Select @update:model-value="(val: any) => actualizarPrecio('viernes', val)">
+                    <SelectTrigger class="festival-select">
+                      <SelectValue placeholder="Seleccionar entrada" />
+                    </SelectTrigger>
+                    <SelectContent class="festival-select-content">
+                      <SelectItem value="ninguno">Sin entrada</SelectItem>
+                      <SelectItem value="medio">Medio día - 3€</SelectItem>
+                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <!-- Sábado -->
+                <div>
+                  <Label class="festival-label">Sábado</Label>
+                  <Select @update:model-value="(val: any) => actualizarPrecio('sabado', val)">
+                    <SelectTrigger class="festival-select">
+                      <SelectValue placeholder="Seleccionar entrada" />
+                    </SelectTrigger>
+                    <SelectContent class="festival-select-content">
+                      <SelectItem value="ninguno">Sin entrada</SelectItem>
+                      <SelectItem value="medio">Medio día - 3€</SelectItem>
+                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <!-- Domingo -->
+                <div>
+                  <Label class="festival-label">Domingo</Label>
+                  <Select @update:model-value="(val: any) => actualizarPrecio('domingo', val)">
+                    <SelectTrigger class="festival-select">
+                      <SelectValue placeholder="Seleccionar entrada" />
+                    </SelectTrigger>
+                    <SelectContent class="festival-select-content">
+                      <SelectItem value="ninguno">Sin entrada</SelectItem>
+                      <SelectItem value="medio">Medio día - 3€</SelectItem>
+                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Merchandising -->
+            <div class="py-2">
+              <label class="flex cursor-pointer items-center justify-between gap-8">
+                <div>
+                  <span class="text-base font-semibold uppercase tracking-tight text-white">Merchandising oficial</span>
+                  <p class="mt-1 text-sm font-medium text-white/70">Pulsera + pegatinas + llavero (1€)</p>
+                </div>
+                <input
+                  type="checkbox"
+                  v-model="incluyeMerch"
+                  class="h-6 w-6 accent-[#bcd432]"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUMMARY SECTION - ROSA -->
+      <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+        <img
+          src="/images/estampado_esclat.png"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+        />
+
+        <div class="relative z-10 mx-auto max-w-6xl">
+          <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p class="mb-4 text-base font-medium uppercase text-white/90">
+                Resumen
+              </p>
+              <div class="flex flex-wrap items-end gap-x-8 gap-y-3">
+                <span class="text-3xl font-semibold uppercase leading-none tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  Total a pagar
+                </span>
+                <span class="text-3xl font-semibold leading-none text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  {{ precioTotal }}€
+                </span>
+              </div>
+              <p class="mt-5 text-base font-medium uppercase leading-relaxed text-white/90">
+                El precio incluye todos los impuestos
+              </p>
+            </div>
+
+            <div class="w-full lg:w-80">
+              <button
+                type="submit"
+                class="w-full bg-[#371e58] px-8 py-7 text-base font-black uppercase tracking-widest text-white transition-all duration-200 hover:bg-white hover:text-[#eb378d]"
+              >
+                Confirmar compra
+              </button>
+
+              <p class="mt-5 text-center text-sm font-medium text-white/80">
+                Al confirmar, recibirás las entradas en tu correo electrónico
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
   </div>
 </template>
 
 <style scoped>
+.festival-label {
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #eb378d;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.festival-input,
+.festival-select {
+  min-height: 3.25rem;
+  border-color: #eb378d;
+  background-color: transparent;
+  color: #eb378d;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+.festival-input:focus,
+.festival-select:focus,
+.festival-select:focus-visible {
+  border-color: #eb378d;
+  box-shadow: 0 0 0 3px rgba(235, 55, 141, 0.24);
+}
+
+.festival-input::placeholder {
+  color: rgba(235, 55, 141, 0.65);
+}
+
+.festival-select-content {
+  border-color: #eb378d;
+  background-color: #eb378d;
+  color: #371e58;
+  border-radius: 0;
+  font-weight: 700;
+}
 </style>
