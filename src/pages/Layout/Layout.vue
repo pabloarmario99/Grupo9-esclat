@@ -91,7 +91,10 @@ watch(
     </div>
   </div>
 
- <button class="fixed bottom-4 right-4 z-50 bg-[#eb378d] text-white font-semibold px-8 py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase">
+ <button
+  v-if="route.path !== '/entradas-acceso'"
+  class="fixed bottom-4 right-4 z-50 bg-[#eb378d] text-white font-semibold px-8 py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase"
+>
   <RouterLink to="/entradas-acceso">
     Comprar entradas
   </RouterLink>
