@@ -48,13 +48,13 @@ const seleccionarEvento = (evento: any) => {
       <Table class="programa-table table-fixed rounded-none bg-transparent w-full">
         <TableHeader class="bg-transparent">
           <TableRow class="border-none bg-transparent header-row">
-            <TableHead class="w-48 min-w-48 max-w-48 pr-4 text-xs md:text-sm font-extrabold text-[#ef5da2] border-0 align-top text-left whitespace-normal wrap-break-word leading-tight">
+            <TableHead class="w-48 min-w-48 max-w-48 pr-4 text-xs md:text-sm font-extrabold text-[#eb378d] border-0 align-top text-left whitespace-normal wrap-break-word leading-tight">
               Escenario
             </TableHead>
             <TableHead
               v-for="(hora, index) in horas"
               :key="`hora-${index}`"
-              class="text-xs md:text-xs font-extrabold text-[#ef5da2] border-0 align-middle text-center whitespace-nowrap"
+              class="text-xs md:text-xs font-extrabold text-[#eb378d] border-0 align-middle text-center whitespace-nowrap"
             >
               {{ hora }}
             </TableHead>
@@ -67,7 +67,7 @@ const seleccionarEvento = (evento: any) => {
             :key="escenario.key"
             class="escenario-row border-none bg-transparent"
           >
-            <TableCell class="w-48 min-w-48 max-w-48 p-1 pr-4 text-xs md:text-sm font-extrabold text-[#ef5da2] align-top border-0 whitespace-normal wrap-break-word leading-tight bg-transparent">
+            <TableCell class="w-48 min-w-48 max-w-48 p-1 pr-4 text-xs md:text-sm font-extrabold text-[#eb378d] align-top border-0 whitespace-normal wrap-break-word leading-tight bg-transparent">
               {{ escenario.label }}
             </TableCell>
 
@@ -76,7 +76,7 @@ const seleccionarEvento = (evento: any) => {
                 :colspan="item.span"
                 :class="[
                   'align-top p-1 border-0 h-full celda-actividad overflow-hidden',
-                  esConcierto(item.celda) ? 'bg-[#ef5da2] cursor-pointer' : 'bg-[#ef5da2]/20'
+                  esConcierto(item.celda) ? 'bg-[#eb378d] cursor-pointer' : 'bg-[#eb378d]/20'
                 ]"
                 @click="seleccionarEvento(item.celda)"
               >
@@ -95,27 +95,27 @@ const seleccionarEvento = (evento: any) => {
         </TableBody>
       </Table>
 
-      <DrawerContent class="bg-[#371e58] border-t-2 border-[#ef5da2] text-[#ffffff] rounded-t-none">
+      <DrawerContent class="bg-[#371e58] border-t-2 border-[#eb378d] text-[#ffffff] rounded-t-none">
         <div class="mx-auto w-full max-w-sm uppercase text-center p-6">
           <DrawerHeader class="p-0 mb-6">
-            <p class="text-xs font-bold text-[#ef5da2] tracking-widest mb-1">{{ eventoSeleccionado?.genero }}</p>
+            <p class="text-xs font-bold text-[#eb378d] tracking-widest mb-1">{{ eventoSeleccionado?.genero }}</p>
             <DrawerTitle class="text-3xl font-black text-[#ffffff] leading-none tracking-tight">
               {{ eventoSeleccionado?.artista }}
             </DrawerTitle>
-            <DrawerDescription class="text-xs font-bold text-[#ef5da2]/70 mt-2">
+            <DrawerDescription class="text-xs font-bold text-[#eb378d]/70 mt-2">
               HORARIO: {{ eventoSeleccionado?.hora }} H
             </DrawerDescription>
           </DrawerHeader>
 
           <div class="p-2">
-            <Button class="w-full bg-[#ef5da2] text-[#371e58] hover:bg-[#ffffff] hover:text-[#ef5da2] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
+            <Button class="w-full bg-[#eb378d] text-[#371e58] hover:bg-[#ffffff] hover:text-[#eb378d] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
               Ver detalles del artista
             </Button>
           </div>
 
           <DrawerFooter class="p-0 mt-4">
             <DrawerClose as-child>
-              <Button variant="outline" class="w-full bg-transparent border border-[#ef5da2] text-[#ef5da2] hover:bg-[#ef5da2]/10 font-bold rounded-none uppercase">
+              <Button variant="outline" class="w-full bg-transparent border border-[#eb378d] text-[#eb378d] hover:bg-[#eb378d]/10 font-bold rounded-none uppercase">
                 Cerrar
               </Button>
             </DrawerClose>

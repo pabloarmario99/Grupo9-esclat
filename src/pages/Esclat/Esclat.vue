@@ -81,13 +81,13 @@ import { RouterLink } from "vue-router"
 		  <div class="flex flex-col w-fit gap-8">
 			<RouterLink
             to="/artistas"
-            class="inline-block px-6 py-3 bg-white text-[#371e58] font-medium rounded-xl hover:bg-[#ef5da2] hover:text-white transition"
+            class="inline-block px-6 py-3 bg-white text-[#371e58] font-medium rounded-xl hover:bg-[#eb378d] hover:text-white transition"
           >
             Ver artistas
           </RouterLink>
 			<RouterLink
         to="/programa"
-        class="inline-block px-6 py-3 bg-white text-[#371e58] font-medium rounded-xl hover:bg-[#ef5da2] hover:text-white transition"
+        class="inline-block px-6 py-3 bg-white text-[#371e58] font-medium rounded-xl hover:bg-[#eb378d] hover:text-white transition"
       >
         Ver programación completa
       </RouterLink>

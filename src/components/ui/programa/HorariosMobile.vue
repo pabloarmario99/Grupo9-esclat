@@ -62,17 +62,17 @@ const buscarYSeleccionarEvento = (franjaActual: FranjaHoraria, indexActual: numb
 <template>
   <div class="block xl:hidden w-full space-y-4 contenedor-movil">
     <div class="flex flex-col gap-2">
-      <label class="text-xs font-black tracking-wider text-[#ef5da2]">Selecciona Escenario:</label>
+      <label class="text-xs font-black tracking-wider text-[#eb378d]">Selecciona Escenario:</label>
       <Select v-model="escenarioSeleccionadoMovil">
-        <SelectTrigger class="w-full p-3 bg-transparent text-[#ef5da2] font-bold rounded-none border border-[#ef5da2] outline-none text-sm tracking-wide h-auto focus:ring-0 focus:ring-offset-0">
+        <SelectTrigger class="w-full p-3 bg-transparent text-[#eb378d] font-bold rounded-none border border-[#eb378d] outline-none text-sm tracking-wide h-auto focus:ring-0 focus:ring-offset-0">
           <SelectValue placeholder="Selecciona escenario" />
         </SelectTrigger>
-        <SelectContent class="bg-[#ef5da2] border-none rounded-none p-0 min-w-(--radix-select-trigger-width)">
+        <SelectContent class="bg-[#eb378d] border-none rounded-none p-0 min-w-(--radix-select-trigger-width)">
           <SelectItem 
             v-for="escenario in escenarios" 
             :key="'opt-' + escenario.key" 
             :value="escenario.key"
-            class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#ef5da2] focus:bg-[#371e58] focus:text-[#ef5da2]"
+            class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]"
           >
             {{ escenario.label }}
           </SelectItem>
@@ -88,7 +88,7 @@ const buscarYSeleccionarEvento = (franjaActual: FranjaHoraria, indexActual: numb
             :key="'movil-row-' + idx"
             class="border-none fila-movil"
           >
-            <TableCell class="w-1/3 p-2 py-3 text-xs font-black align-middle text-[#ef5da2] whitespace-nowrap bg-transparent">
+            <TableCell class="w-1/3 p-2 py-3 text-xs font-black align-middle text-[#eb378d] whitespace-nowrap bg-transparent">
               {{ franja.hora }}
             </TableCell>
 
@@ -98,7 +98,7 @@ const buscarYSeleccionarEvento = (franjaActual: FranjaHoraria, indexActual: numb
                 as-child
                 @click="buscarYSeleccionarEvento(franja, idx)"
               >
-                <div class="group p-3 bg-[#ef5da2] text-[#371e58] flex flex-col justify-center rounded-none min-h-16 box-border cursor-pointer">
+                <div class="group p-3 bg-[#eb378d] text-[#371e58] flex flex-col justify-center rounded-none min-h-16 box-border cursor-pointer">
                   <div class="font-bold text-xs inline-block transition-transform duration-200 group-hover:scale-[1.02] origin-center">
                     {{ (franja[escenarioSeleccionadoMovil] as Concierto).artista }}
                   </div>
@@ -110,39 +110,39 @@ const buscarYSeleccionarEvento = (franjaActual: FranjaHoraria, indexActual: numb
                 as-child
                 @click="buscarYSeleccionarEvento(franja, idx)"
               >
-                <div class="p-3 bg-[#ef5da2] text-[#371e58] min-h-16 box-border -mt-2 cursor-pointer"></div>
+                <div class="p-3 bg-[#eb378d] text-[#371e58] min-h-16 box-border -mt-2 cursor-pointer"></div>
               </DrawerTrigger>
 
               <div 
                 v-else
-                class="p-3 bg-[#ef5da2]/20 min-h-16 flex items-center justify-center rounded-none"
+                class="p-3 bg-[#eb378d]/20 min-h-16 flex items-center justify-center rounded-none"
               ></div>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
 
-      <DrawerContent class="bg-[#371e58] border-t-2 border-[#ef5da2] text-[#ffffff] rounded-t-none">
+      <DrawerContent class="bg-[#371e58] border-t-2 border-[#eb378d] text-[#ffffff] rounded-t-none">
         <div class="mx-auto w-full max-w-sm uppercase text-center p-6">
           <DrawerHeader class="p-0 mb-6">
-            <p class="text-xs font-bold text-[#ef5da2] tracking-widest mb-1">{{ eventoSeleccionado?.genero }}</p>
+            <p class="text-xs font-bold text-[#eb378d] tracking-widest mb-1">{{ eventoSeleccionado?.genero }}</p>
             <DrawerTitle class="text-2xl font-black text-[#ffffff] leading-none tracking-tight">
               {{ eventoSeleccionado?.artista }}
             </DrawerTitle>
-            <DrawerDescription class="text-xs font-bold text-[#ef5da2]/70 mt-2">
+            <DrawerDescription class="text-xs font-bold text-[#eb378d]/70 mt-2">
               HORARIO: {{ eventoSeleccionado?.hora }} H
             </DrawerDescription>
           </DrawerHeader>
 
           <div class="p-2">
-            <Button class="w-full bg-[#ef5da2] text-[#371e58] hover:bg-[#ffffff] hover:text-[#ef5da2] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
+            <Button class="w-full bg-[#eb378d] text-[#371e58] hover:bg-[#ffffff] hover:text-[#eb378d] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
               Ver detalles del artista
             </Button>
           </div>
 
           <DrawerFooter class="p-0 mt-4">
             <DrawerClose as-child>
-              <Button variant="outline" class="w-full bg-transparent border border-[#ef5da2] text-[#ef5da2] hover:bg-[#ef5da2]/10 font-bold rounded-none uppercase">
+              <Button variant="outline" class="w-full bg-transparent border border-[#eb378d] text-[#eb378d] hover:bg-[#eb378d]/10 font-bold rounded-none uppercase">
                 Cerrar
               </Button>
             </DrawerClose>

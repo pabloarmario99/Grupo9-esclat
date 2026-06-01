@@ -16,7 +16,7 @@ const artista = artistas.find(
     >{{ artista.nombre }}</h1>
     <p>{{ artista.descripcion }}</p>
     <p>Horario: {{ artista.actuacion }}</p>
-    <RouterLink to="/artistas" class="text-[#ef5da2] hover:font-medium transition-all">
+    <RouterLink to="/artistas" class="text-[#eb378d] hover:font-medium transition-all">
           Volver
     </RouterLink>
   </div>

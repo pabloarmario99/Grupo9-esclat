@@ -16,7 +16,7 @@ const taller = talleres.find(
     >{{ taller.nombre }}</h1>
     <p>{{ taller.descripcion }}</p>
     <p>Horario: {{ taller.horario }}</p>
-    <RouterLink to="/artistas" class=" text-[#ef5da2] hover:font-medium transition-all">
+    <RouterLink to="/artistas" class=" text-[#eb378d] hover:font-medium transition-all">
           Volver
     </RouterLink>
   </div>

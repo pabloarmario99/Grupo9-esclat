@@ -193,15 +193,15 @@ const enviarCompra = async (): Promise<void> => {
           <div class="space-y-3">
             <div class="flex justify-between items-center border-b pb-2">
               <span>Medio día (tarde)</span>
-              <span class="font-bold text-[#ef5da2]">3€</span>
+              <span class="font-bold text-[#eb378d]">3€</span>
             </div>
             <div class="flex justify-between items-center border-b pb-2">
               <span>Día completo</span>
-              <span class="font-bold text-[#ef5da2]">5€</span>
+              <span class="font-bold text-[#eb378d]">5€</span>
             </div>
             <div class="flex justify-between items-center border-b pb-2">
               <span>Pack especial 3 días completos</span>
-              <span class="font-bold text-[#ef5da2]">12€</span>
+              <span class="font-bold text-[#eb378d]">12€</span>
             </div>
             <div class="flex justify-between items-center pt-2">
               <span>Merchandising oficial</span>
@@ -321,13 +321,13 @@ const enviarCompra = async (): Promise<void> => {
               <input 
                 type="checkbox" 
                 v-model="incluyeMerch" 
-                class="w-5 h-5 text-[#ef5da2]"
+                class="w-5 h-5 text-[#eb378d]"
               />
             </label>
           </div>
           
           <!-- Resumen y precio total -->
-          <div class="bg-[#ef5da2] p-6 rounded-lg shadow text-white">
+          <div class="bg-[#eb378d] p-6 rounded-lg shadow text-white">
             <div class="flex justify-between items-center text-xl font-bold">
               <span>Total a pagar:</span>
               <span>{{ precioTotal }}€</span>

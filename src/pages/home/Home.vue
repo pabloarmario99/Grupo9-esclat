@@ -74,7 +74,7 @@ const imagenActiva = computed(() => {
       <nav class="home-menu">
         <router-link to="/esclat">
           <button 
-            class="home-button text-white"
+            class="home-button text-white font-medium"
             @mouseenter="hoveredButton = 'esclat'"
             @mouseleave="hoveredButton = null"
           >
@@ -84,7 +84,7 @@ const imagenActiva = computed(() => {
         
         <router-link to="/programa">
           <button 
-            class="home-button text-white"
+            class="home-button text-white font-medium"
             @mouseenter="hoveredButton = 'programa'"
             @mouseleave="hoveredButton = null"
           >
@@ -94,7 +94,7 @@ const imagenActiva = computed(() => {
         
         <router-link to="/artistas">
           <button 
-            class="home-button text-white"
+            class="home-button text-white font-medium"
             @mouseenter="hoveredButton = 'artistas'"
             @mouseleave="hoveredButton = null"
           >
@@ -104,7 +104,7 @@ const imagenActiva = computed(() => {
         
         <router-link to="/entradas-acceso">
           <button 
-            class="home-button text-white"
+            class="home-button text-white font-medium"
             @mouseenter="hoveredButton = 'entradas'"
             @mouseleave="hoveredButton = null"
           >
@@ -124,7 +124,7 @@ const imagenActiva = computed(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ef5da2; /* Tu fondo rosa plano original */
+  background-color: #eb378d; /* Tu fondo rosa plano original */
   text-align: center;
   padding: 2rem;
   isolation: isolate; /* Clave para que los z-index respeten las capas */
@@ -161,7 +161,7 @@ const imagenActiva = computed(() => {
   padding: 0.45rem 0.8rem;
   border-radius: 9999px;
   background: #ffffff;
-  color: #ef5da2;
+  color: #eb378d;
   font-weight: 800;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
@@ -174,9 +174,7 @@ const imagenActiva = computed(() => {
   transition: transform 0.2s ease;
 }
 
-.home-logo:hover {
-  transform: translateY(-0.6rem) scale(1.03);
-}
+
 
 .home-logo-mobile,
 .home-logo-mid {
@@ -252,7 +250,6 @@ const imagenActiva = computed(() => {
   padding: 1rem;
   font-size: 1.5rem;
   font-family: "Mona Sans Var", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 300;
   text-transform: uppercase;
   cursor: pointer;
   background: transparent;

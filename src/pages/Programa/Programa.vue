@@ -25,12 +25,12 @@ import { mapaHorarios } from "@/data/horariosData"
 
       <div class="w-full mt-14 sm:mt-16 md:mt-20 bg-[#371e58] py-10 sm:py-12 md:py-14">
         <div class="mx-6 mb-16 sm:mb-24 md:mx-10 lg:mb-32 lg:mx-14">
-          <p class="text-[#ef5da2] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.2em] mt-3 sm:mt-4 md:mt-5 mb-12 sm:mb-16">
+          <p class="text-[#eb378d] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.2em] mt-3 sm:mt-4 md:mt-5 mb-12 sm:mb-16">
             HORARIOS
           </p>
 
           <Tabs default-value="viernes" class="w-full">
-            <TabsList class="flex justify-start items-center gap-8 mb-3 bg-transparent text-[#ef5da2] h-auto p-0 rounded-none w-full">
+            <TabsList class="flex justify-start items-center gap-8 mb-3 bg-transparent text-[#eb378d] h-auto p-0 rounded-none w-full">
               <TabsTrigger value="viernes" class="tab-trigger-custom">26</TabsTrigger>
               <TabsTrigger value="sabado" class="tab-trigger-custom">27</TabsTrigger>
               <TabsTrigger value="domingo" class="tab-trigger-custom">28</TabsTrigger>
@@ -61,7 +61,7 @@ import { mapaHorarios } from "@/data/horariosData"
 .page {
   min-height: 100vh;
   padding: 2rem 0;
-  background: #ef5da2;
+  background: #eb378d;
 }
 
 .texture-multiply {
@@ -73,7 +73,7 @@ import { mapaHorarios } from "@/data/horariosData"
   font-size: 6rem;
   font-weight: 900;
   display: inline-block;
-  color: rgba(239, 93, 162, 0.4);
+  color: rgba(235, 55, 141, 0.4);
   background-color: transparent;
   border-radius: 0;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -84,7 +84,7 @@ import { mapaHorarios } from "@/data/horariosData"
 }
 
 .tab-trigger-custom[data-state="active"] {
-  color: #ef5da2 !important;
+  color: #eb378d !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -96,7 +96,7 @@ import { mapaHorarios } from "@/data/horariosData"
 .nav-link-custom {
   display: inline-block;
   background-color: #ffffff;
-  color: #ef5da2;
+  color: #eb378d;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.1em;
