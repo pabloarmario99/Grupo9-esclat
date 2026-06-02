@@ -130,7 +130,7 @@ const artistaLink = computed(() => {
                 @click="buscarYSeleccionarEvento(franja, idx)"
               >
                 <div class="group p-3 bg-[#eb378d] text-[#371e58] flex flex-col justify-center rounded-none min-h-16 box-border cursor-pointer">
-                  <div class="font-bold text-xs inline-block transition-transform duration-200 group-hover:scale-[1.02] origin-center">
+                  <div class="font-semibold text-xs inline-block transition-transform duration-200 origin-center group-hover:text-white">
                     {{ (franja[escenarioSeleccionadoMovil] as Concierto).artista }}
                   </div>
                 </div>

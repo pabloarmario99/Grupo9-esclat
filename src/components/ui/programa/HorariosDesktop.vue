@@ -113,7 +113,7 @@ const artistaLink = computed(() => {
               >
                 <DrawerTrigger v-if="esConcierto(item.celda)" as-child>
                   <div class="programa-card group p-2 rounded-none flex flex-col justify-center h-full w-full box-border overflow-hidden">
-                    <div class="font-black text-[clamp(9px,0.62vw,11px)] 2xl:text-xs text-[#371e58] whitespace-normal break-normal text-balance leading-tight inline-block transition-transform duration-200 group-hover:scale-[1.02] origin-center">
+                    <div class="font-semibold text-[clamp(9px,0.62vw,11px)] 2xl:text-xs text-[#371e58] whitespace-normal break-normal text-balance leading-tight inline-block transition-transform duration-200 group-hover:text-white origin-center">
                       {{ item.celda.artista }}
                     </div>
                   </div>

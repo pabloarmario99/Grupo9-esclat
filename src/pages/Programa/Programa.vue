@@ -46,12 +46,23 @@ import { mapaHorarios } from "@/data/horariosData"
       </div>
     </div>
 
-    <div class="relative z-10 w-full bg-transparent -mt-4 pt-44 pb-44 px-6 md:px-10 lg:px-14 flex flex-col items-center text-center">
-      <p class="-translate-y-4 text-[#ffffff] text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight uppercase mb-28">¿A dónde vamos ahora?</p>
-      <div class="flex flex-wrap justify-center gap-14">
-        <RouterLink to="/" class="nav-link-custom">Home</RouterLink>
-        <RouterLink to="/esclat" class="nav-link-custom">Esclat</RouterLink>
-        <RouterLink to="/artistas" class="nav-link-custom">Artistas</RouterLink>
+    <!-- NAVEGACIÓN FINAL - ROSA -->
+    <div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32">
+      <img
+        src="/images/estampado_esclat.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+      />
+      
+      <p class="relative z-10 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight uppercase mb-20">
+        Sigue explorando Esclat
+      </p>
+      <div class="relative z-10 flex flex-wrap justify-center gap-8">
+        <RouterLink to="/" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Home</RouterLink>
+        <RouterLink to="/esclat" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Esclat</RouterLink>
+        <RouterLink to="/artistas" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Artistas</RouterLink>
+        <RouterLink to="/programa" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Programa</RouterLink>
       </div>
     </div>
   </section>

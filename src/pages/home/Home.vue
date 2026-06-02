@@ -87,7 +87,7 @@ const imagenActiva = computed(() => {
             @mouseenter="hoveredButton = 'esclat'"
             @mouseleave="hoveredButton = null"
           >
-            ESCLAT
+            INFORMACIÓN
           </button>
         </router-link>
         

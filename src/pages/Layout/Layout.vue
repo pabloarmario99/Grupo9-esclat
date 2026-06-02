@@ -32,11 +32,11 @@ watch(
 
     <nav class="hidden md:flex items-center gap-8 text-white text-sm font-semibold tracking-wide uppercase">
       <RouterLink to="/esclat" class="hover:text-[#bcd432] transition-colors">
-        ESCLAT
+        INFORMACIÓN
       </RouterLink>
 
       <RouterLink to="/programa" class="hover:text-[#bcd432] transition-colors">
-        PROGRAMA
+        PROGRAMACIÓN
       </RouterLink>
 
       <RouterLink to="/artistas" class="hover:text-[#bcd432] transition-colors">
@@ -73,11 +73,11 @@ watch(
     >
       <div class="flex flex-col gap-10 p-5">
         <RouterLink to="/esclat" class="text-white font-medium hover:text-[#bcd432] transition-all">
-          ESCLAT
+          INFORMACIÓN
         </RouterLink>
 
         <RouterLink to="/programa" class="text-white font-medium hover:text-[#bcd432] transition-all">
-          PROGRAMA
+          PROGRAMACIÓN
         </RouterLink>
 
         <RouterLink to="/artistas" class="text-white font-medium hover:text-[#bcd432] transition-all">
