@@ -6,10 +6,10 @@ const hoveredButton = ref<string | null>(null)
 
 // LAS IMÁGENES DINÁMICAS: Cambia las rutas por las tuyas
 const imagenesFondo: Record<string, string> = {
-  esclat: '/images/diablo.jpg',
-  programa: '/images/grupo4.jpg',
+  esclat: '/images/garbí.jpg',
+  programa: '/images/petunias2.jpg',
   artistas: '/images/tronkas.jpg',
-  entradas: '/images/entradas.png',
+  entradas: '/images/nuevosvicios2.jpeg',
 }
 
 // Calculamos cuál es la imagen activa en cada momento
@@ -19,7 +19,12 @@ const imagenActiva = computed(() => {
 </script>
 
 <template>
-  <div class="home-container relative overflow-x-hidden">
+  <div
+    :class="[
+      'home-container relative overflow-hidden',
+      imagenActiva ? 'home-hover-active' : '',
+    ]"
+  >
     <!-- CAPA 1: El patrón texturizado original en multiplicar (Fondo base) -->
     <img
       src="/images/estampado_esclat.png"
@@ -32,18 +37,22 @@ const imagenActiva = computed(() => {
     <div class="home-preview-window">
       <transition
         enter-active-class="transition-all duration-700 ease-in-out absolute inset-0"
-        enter-from-class="opacity-0 scale-105 blur-[2px]"
+        enter-from-class="opacity-0 scale-110 blur-[2px]"
         enter-to-class="opacity-100 scale-100 blur-0"
         leave-active-class="transition-all duration-700 ease-in-out absolute inset-0"
         leave-from-class="opacity-100 scale-100 blur-0"
-        leave-to-class="opacity-0 scale-95 blur-[2px]"
+        leave-to-class="opacity-0 scale-110 blur-[2px]"
       >
         <img
           v-if="imagenActiva"
           :key="imagenActiva" 
           :src="imagenActiva" 
           alt="Vista previa" 
-          class="preview-image absolute inset-0"
+          :class="[
+            'preview-image absolute inset-0',
+            hoveredButton === 'esclat' ? 'preview-image-garbi-lg' : '',
+            hoveredButton === 'artistas' ? 'preview-image-tronkas-mobile' : '',
+          ]"
         />
       </transition>
     </div>
@@ -119,6 +128,8 @@ const imagenActiva = computed(() => {
 
 <style scoped>
 .home-container {
+  width: 100%;
+  min-height: 100dvh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -152,6 +163,18 @@ const imagenActiva = computed(() => {
   object-position: center;
 }
 
+@media (min-width: 1024px) {
+  .preview-image-garbi-lg {
+    object-position: center 30%;
+  }
+}
+
+@media (max-width: 767px) {
+  .preview-image-tronkas-mobile {
+    object-position: 44% center;
+  }
+}
+
 /* RESTO DE ESTILOS ORIGINALES */
 .live-debug-badge {
   position: fixed;
@@ -171,7 +194,7 @@ const imagenActiva = computed(() => {
   width: clamp(80rem, 120vw, 100rem);
   height: auto;
   transform: translateY(-0.6rem);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, filter 0.25s ease;
 }
 
 
@@ -223,8 +246,31 @@ const imagenActiva = computed(() => {
   width: min(1200px, 100%);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(0.75rem, 1.8vw, 1.25rem);
   margin: 1.1rem auto 2rem;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .home-menu {
+    width: min(1100px, 100%);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-inline: clamp(0.75rem, 2vw, 1.5rem);
+    gap: clamp(0.9rem, 1.8vw, 1.35rem);
+  }
+
+  .home-menu > a {
+    width: 100%;
+  }
+
+  .home-button {
+    font-size: clamp(1rem, 1.6vw, 1.22rem);
+    padding: 0.9rem 0.65rem;
+    white-space: nowrap;
+  }
+
+  .home-button:hover {
+    transform: scale(1.01);
+  }
 }
 
 @media (max-width: 767px) {
@@ -254,7 +300,15 @@ const imagenActiva = computed(() => {
   cursor: pointer;
   background: transparent;
   border: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, text-shadow 0.25s ease;
+}
+
+.home-hover-active .home-button {
+  text-shadow: 0 7px 26px rgba(0, 0, 0, 0.68);
+}
+
+.home-hover-active .home-logo {
+  filter: drop-shadow(0 7px 26px rgba(0, 0, 0, 0.58));
 }
 
 .home-button:hover {

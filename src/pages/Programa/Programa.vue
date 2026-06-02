@@ -25,7 +25,7 @@ import { mapaHorarios } from "@/data/horariosData"
 
       <div class="w-full mt-14 sm:mt-16 md:mt-20 bg-[#371e58] py-10 sm:py-12 md:py-14">
         <div class="mx-6 mb-16 sm:mb-24 md:mx-10 lg:mb-32 lg:mx-14">
-          <p class="text-[#eb378d] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.2em] mt-3 sm:mt-4 md:mt-5 mb-12 sm:mb-16">
+          <p class="text-[#eb378d] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[0.2em] mt-3 sm:mt-4 md:mt-5 mb-12 sm:mb-16">
             HORARIOS
           </p>
 
@@ -47,7 +47,7 @@ import { mapaHorarios } from "@/data/horariosData"
     </div>
 
     <div class="relative z-10 w-full bg-transparent -mt-4 pt-44 pb-44 px-6 md:px-10 lg:px-14 flex flex-col items-center text-center">
-      <p class="-translate-y-4 text-[#ffffff] text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase mb-28">¿A dónde vamos ahora?</p>
+      <p class="-translate-y-4 text-[#ffffff] text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight uppercase mb-28">¿A dónde vamos ahora?</p>
       <div class="flex flex-wrap justify-center gap-14">
         <RouterLink to="/" class="nav-link-custom">Home</RouterLink>
         <RouterLink to="/esclat" class="nav-link-custom">Esclat</RouterLink>
@@ -60,7 +60,7 @@ import { mapaHorarios } from "@/data/horariosData"
 <style scoped>
 .page {
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 0;
   background: #eb378d;
 }
 
@@ -71,7 +71,7 @@ import { mapaHorarios } from "@/data/horariosData"
 .tab-trigger-custom {
   padding: 0;
   font-size: 6rem;
-  font-weight: 900;
+  font-weight: 500;
   display: inline-block;
   color: rgba(235, 55, 141, 0.4);
   background-color: transparent;

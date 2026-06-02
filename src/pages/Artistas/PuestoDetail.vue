@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router"
-import { talleres } from "@/data/talleres"
+import { puestos } from "@/data/puestos"
 
 const route = useRoute()
 
-const taller = talleres.find(
+const puesto = puestos.find(
   a => a.id === Number(route.params.id)
 )
 </script>
@@ -18,12 +18,12 @@ const taller = talleres.find(
       class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover texture-multiply opacity-85"
     >
 
-    <div v-if="taller" class="relative z-10 flex flex-col ml-10 my-50">
+    <div v-if="puesto" class="relative z-10 flex flex-col ml-10 my-50">
       <h1
       class="font-bold text-2xl"
-      >{{ taller.nombre }}</h1>
-      <p>{{ taller.descripcion }}</p>
-      <p>Horario: {{ taller.horario }}</p>
+      >{{ puesto.nombre }}</h1>
+      <p>{{ puesto.descripcion }}</p>
+      <p>Horario: {{ puesto.actuacion }}</p>
       <RouterLink to="/artistas" class=" text-[#eb378d] hover:font-medium transition-all">
             Volver
       </RouterLink>

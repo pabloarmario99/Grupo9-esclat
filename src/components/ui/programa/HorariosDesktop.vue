@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { computed, ref } from "vue"
+import { RouterLink } from "vue-router"
 import {
   Table,
   TableBody,
@@ -19,6 +20,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
+import { artistas } from "@/data/artistas"
 import { 
   horas, 
   escenarios, 
@@ -40,6 +42,35 @@ const seleccionarEvento = (evento: any) => {
     eventoSeleccionado.value = evento
   }
 }
+
+const normalizarNombre = (valor: string) => {
+  return valor
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toLowerCase()
+}
+
+const aliasArtistas = new Map<string, number>([
+  ["eddsh", 10],
+])
+
+const mapaArtistas = computed(() => {
+  const mapa = new Map<string, number>()
+  artistas.forEach((artista) => {
+    mapa.set(normalizarNombre(artista.nombre), artista.id)
+  })
+  return mapa
+})
+
+const artistaLink = computed(() => {
+  const nombre = eventoSeleccionado.value?.artista
+  if (!nombre) return null
+
+  const clave = normalizarNombre(nombre)
+  const artistaId = aliasArtistas.get(clave) ?? mapaArtistas.value.get(clave)
+  return artistaId ? `/artistas/${artistaId}` : null
+})
 </script>
 
 <template>
@@ -108,7 +139,12 @@ const seleccionarEvento = (evento: any) => {
           </DrawerHeader>
 
           <div class="p-2">
-            <Button class="w-full bg-[#eb378d] text-[#371e58] hover:bg-[#ffffff] hover:text-[#eb378d] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
+            <RouterLink v-if="artistaLink" :to="artistaLink" class="block">
+              <Button class="w-full bg-[#eb378d] text-[#371e58] hover:bg-[#ffffff] hover:text-[#eb378d] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
+                Ver detalles del artista
+              </Button>
+            </RouterLink>
+            <Button v-else disabled class="w-full bg-[#eb378d]/50 text-[#371e58]/70 font-black tracking-wider py-6 rounded-none uppercase cursor-not-allowed">
               Ver detalles del artista
             </Button>
           </div>

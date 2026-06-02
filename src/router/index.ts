@@ -7,6 +7,7 @@ import Programa from "@/pages/Programa/Programa.vue"
 import Artistas from "@/pages/Artistas/Artistas.vue"
 import ArtistaDetail from "@/pages/Artistas/ArtistaDetail.vue"
 import TallerDetail from "@/pages/Artistas/TallerDetail.vue"
+import PuestoDetail from "@/pages/Artistas/PuestoDetail.vue"
 import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue"
 
 // layout
@@ -56,6 +57,12 @@ export const router = createRouter({
           path: "artistas/taller/:id",
           name: "taller-detail",
           component: TallerDetail
+        },
+
+        {
+          path: "artistas/puesto/:id",
+          name: "puesto-detail",
+          component: PuestoDetail
         },
 
         {
