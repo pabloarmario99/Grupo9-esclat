@@ -30,22 +30,7 @@ import { RouterLink } from "vue-router"
 </p>
   </section>
 
-  <Carousel
-    class="relative z-10"
-    :plugins="[Autoplay({ delay: 3500 })]"
-    :opts="{ align: 'start', loop: true }"
-  >
-    <CarouselContent>
-      <CarouselItem v-for="n in 3" :key="n" class="basis-full">
-        <div class="mb-10 w-screen h-[50vh] sm:h-[60vh] lg:h-[70vh]">
-          <img
-            :src="`/images/naves${n}.jpg`"
-            class="w-full h-full object-cover"
-          />
-        </div>
-      </CarouselItem>
-    </CarouselContent>
-  </Carousel>
+  
 
 </section>
 
