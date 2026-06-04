@@ -14,8 +14,8 @@ const imagenesCarrusel = ref([
 
 <template>
   <div class="w-full px-6 md:px-10 lg:px-14 mt-10 sm:mt-10 md:mt-12 lg:mt-0 mb-2 sm:mb-3 md:mb-4 lg:mb-6 lg:relative">
-    <h1 class="relative z-10 mt-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none font-medium text-left text-[#ffffff] pt-20 sm:pt-20 md:pt-20 lg:pt-24 xl:pt-28 mb-3">
-      PROGRAMACIÓN
+    <h1 class="relative z-10 pl-6 mt-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none font-medium text-left text-[#ffffff] pt-20 sm:pt-20 md:pt-20 lg:pt-24 xl:pt-28 mb-3">
+    PROGRAMACIÓN
     </h1>
   </div>
 

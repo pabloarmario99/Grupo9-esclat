@@ -152,27 +152,26 @@ const enviarCompra = async (): Promise<void> => {
 </script>
 
 <template>
-  <div class="w-full mt-20 overflow-x-hidden bg-[#eb378d] text-white">
-    <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
-      <img
-        src="/images/estampado_esclat.png"
-        alt=""
-        aria-hidden="true"
-        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
-      />
+<div class="w-full overflow-x-hidden bg-[#eb378d] text-white">    
+  <section class="relative flex flex-col bg-[#eb378d]">
 
-      <div class="relative z-10 mx-auto max-w-6xl">
-        <p class="mb-3 text-base font-medium uppercase text-white/90">
-          Entradas y acceso
-        </p>
-        <h1 class="max-w-4xl text-3xl font-semibold uppercase leading-none tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-          Reserva tu lugar en Esclat
-        </h1>
-        <p class="mt-5 max-w-2xl text-base font-medium leading-relaxed text-white/90">
-          Elige tus días, añade el pase VIP si quieres exprimir al máximo la experiencia y recibe tus pases directamente por correo.
-        </p>
-      </div>
-    </section>
+  <img
+    src="/images/estampado_esclat.png"
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+  />
+
+  <section class="w-full mt-10 sm:mt-10 md:mt-12 lg:mt-0 mb-2 sm:mb-3 md:mb-4 lg:mb-6 lg:relative z-10">
+    <h1 class="relative z-10 pl-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none font-medium text-left text-[#ffffff] pt-20 sm:pt-20 md:pt-20 lg:pt-24 xl:pt-28 mb-3">
+      ENTRADAS
+    </h1>
+   <p class="programa-intro-text px-6 pb-4 font-medium">
+    Reserva tu acceso al festival, consulta los horarios, descubre las distintas modalidades de entrada y personaliza tu experiencia con merchandising y pase VIP. Toda la información necesaria para disfrutar de Esclat desde el primer día.
+</p>
+  </section>
+</section>
+     
 
     <section class="relative bg-[#371e58] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
       <img
@@ -447,5 +446,19 @@ const enviarCompra = async (): Promise<void> => {
 
 .festival-input::placeholder {
   color: rgba(235, 55, 141, 0.65);
+}
+.entradas-intro-text {
+  
+  font-size: clamp(0.9rem, 2.35vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .entradas-intro-text {
+    margin-top: 2rem;
+    font-size: clamp(0.95rem, 1.45vw, 1.06rem);
+  }
 }
 </style>

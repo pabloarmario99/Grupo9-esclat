@@ -97,10 +97,10 @@ const enviarPedido = async (): Promise<void> => {
 </script>
 
 <template>
-  <div class="w-full mt-20 overflow-x-hidden bg-[#371e58]">
+  <div class="w-full mt-10 overflow-x-hidden bg-[#371e58]">
     
     <!-- SECCIÓN 1: HERO -->
-    <section class="relative bg-[#371e58] px-6 py-20 md:px-10 md:py-28 lg:px-14 lg:py-36 flex items-center justify-center text-center">
+    <section class="relative bg-[#371e58] px-6 pb-10 pt-20 md:px-10 md:py-28 lg:px-14 lg:py-36 flex items-center justify-center text-center">
       <img
         src="/images/estampado_esclat.png"
         alt=""
@@ -290,7 +290,7 @@ const enviarPedido = async (): Promise<void> => {
     <Teleport to="body">
       <div 
         v-if="isLightboxOpen"
-        class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md select-none transition-opacity duration-300"
+        class="fixed inset-0 z-9999 flex items-center justify-center bg-black/95 backdrop-blur-md select-none transition-opacity duration-300"
         @click.self="closeLightbox"
       >
         <button 
@@ -301,7 +301,7 @@ const enviarPedido = async (): Promise<void> => {
         </button>
 
         <button 
-          class="absolute left-0 top-0 bottom-0 w-1/5 flex items-center justify-center text-white/30 hover:text-[#bdd434] text-5xl font-bold bg-gradient-to-r from-black/50 to-transparent opacity-0 hover:opacity-100 transition-all duration-200"
+          class="absolute left-0 top-0 bottom-0 w-1/5 flex items-center justify-center text-white/30 hover:text-[#bdd434] text-5xl font-bold bg-linear-to-r from-black/50 to-transparent opacity-0 hover:opacity-100 transition-all duration-200"
           @click="prevImage"
         >
           ‹
@@ -319,7 +319,7 @@ const enviarPedido = async (): Promise<void> => {
         </div>
 
         <button 
-          class="absolute right-0 top-0 bottom-0 w-1/5 flex items-center justify-center text-white/30 hover:text-[#bdd434] text-5xl font-bold bg-gradient-to-l from-black/50 to-transparent opacity-0 hover:opacity-100 transition-all duration-200"
+          class="absolute right-0 top-0 bottom-0 w-1/5 flex items-center justify-center text-white/30 hover:text-[#bdd434] text-5xl font-bold bg-linear-to-l from-black/50 to-transparent opacity-0 hover:opacity-100 transition-all duration-200"
           @click="nextImage"
         >
           ›

@@ -31,19 +31,19 @@ watch(
     </RouterLink>
 
     <nav class="hidden md:flex items-center gap-8 text-white text-sm font-semibold tracking-wide uppercase">
-      <RouterLink to="/esclat" class="hover:text-[#bdd434] transition-colors">
+      <RouterLink to="/esclat" class="hover:text-[#bcd432] transition-colors">
         INFORMACIÓN
       </RouterLink>
 
-      <RouterLink to="/programa" class="hover:text-[#bdd434] transition-colors">
+      <RouterLink to="/programa" class="hover:text-[#bcd432] transition-colors">
         PROGRAMACIÓN
       </RouterLink>
 
-      <RouterLink to="/artistas" class="hover:text-[#bdd434] transition-colors">
+      <RouterLink to="/artistas" class="hover:text-[#bcd432] transition-colors">
         ARTISTAS
       </RouterLink>
 
-      <RouterLink to="/entradas-acceso" class="hover:text-[#bdd434] transition-colors">
+      <RouterLink to="/entradas-acceso" class="hover:text-[#bcd432] transition-colors">
         ENTRADAS
       </RouterLink>
     </nav>
@@ -72,19 +72,19 @@ watch(
       :class="isSidebarOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="flex flex-col gap-10 p-5">
-        <RouterLink to="/esclat" class="text-white font-medium hover:text-[#bdd434] transition-all">
+        <RouterLink to="/esclat" class="text-white font-medium hover:text-[#bcd432] transition-all">
           INFORMACIÓN
         </RouterLink>
 
-        <RouterLink to="/programa" class="text-white font-medium hover:text-[#bdd434] transition-all">
+        <RouterLink to="/programa" class="text-white font-medium hover:text-[#bcd432] transition-all">
           PROGRAMACIÓN
         </RouterLink>
 
-        <RouterLink to="/artistas" class="text-white font-medium hover:text-[#bdd434] transition-all">
+        <RouterLink to="/artistas" class="text-white font-medium hover:text-[#bcd432] transition-all">
           ARTISTAS
         </RouterLink>
 
-        <RouterLink to="/entradas-acceso" class="text-white font-medium hover:text-[#bdd434] transition-all">
+        <RouterLink to="/entradas-acceso" class="text-white font-medium hover:text-[#bcd432] transition-all">
           ENTRADAS
         </RouterLink>
       </div>
@@ -93,7 +93,7 @@ watch(
 
  <button
   v-if="route.path !== '/entradas-acceso'"
-  class="fixed bottom-4 right-4 z-50 bg-[#bdd434] text-white font-semibold p-4 md:px-8 md:py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase"
+  class="fixed bottom-4 right-4 z-50 bg-[#bcd432] text-white font-semibold p-4 md:px-8 md:py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase"
 >
   <RouterLink to="/entradas-acceso" aria-label="Comprar entradas">
     <Ticket class="size-6 md:hidden" />
@@ -110,54 +110,50 @@ watch(
 
       <div class="flex flex-col gap-10 md:flex-row md:items-center sm:justify-center">
       <!-- ORGANIZADORES -->
-      <div>
-        <h3 class="mb-4">Organiza</h3>
+      <div class="flex items-center">
+        <h3 class="pr-3">Organiza:</h3>
 
         <div class="flex items-center">
           <img
-            src="/images/valencia.svg"
+            src="/images/valenciaNaves.png"
             alt="Organizador 1"
-            class=" object-contain w-20 h-auto mr-6"
+            class=" object-contain w-45 h-auto mr-1 invert"
           />
 
+          
           <img
-            src="/images/naves.svg"
+            src="/images/logo white.png"
             alt="Organizador 2"
-            class="w-19 h-auto object-contain mr-2"
-          />
-          <img
-            src="/images/logo white.svg"
-            alt="Organizador 2"
-            class="w-25 h-auto object-contain"
+            class="w-17 h-auto object-contain"
           />
         </div>
       </div>
 
       <!-- COLABORADORES -->
-      <div>
-        <h3 class="mb-4">Colaboradores</h3>
+      <div class="flex items-center">
+        <h3 class="pr-5">Colabora:</h3>
 
         <div class="flex items-center gap-6">
           <img
             src="/images/diputacion.svg"
             alt="Colaborador 3"
-            class="w-19 h-auto object-contain"
+            class="w-18 h-auto object-contain"
           />
           <img
             src="/images/IVAJ.svg"
             alt="Colaborador 3"
-            class="w-16 h-auto object-contain"
+            class="w-15 h-auto object-contain"
           />
           <img
             src="/images/turia.svg"
             alt="Colaborador 1"
-            class="w-14 h-auto object-contain"
+            class="w-12 h-auto object-contain"
           />
 
           <img
             src="/images/coke.svg"
             alt="Colaborador 2"
-            class="w-15 h-auto object-contain"
+            class="w-12 h-auto object-contain"
           />
         </div>
       </div>
