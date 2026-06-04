@@ -58,16 +58,16 @@ const aliasArtistas = new Map<string, number>([
 ])
 
 const aliasTalleres = new Map<string, number>([
-  ["tallerdelafotografia", 1],
-  ["mesaredondemusica", 2],
+  ["tallerdefotografia", 1],
+  ["mesaredondademusica", 2],
   ["sesiondecine", 3],
   ["torneodevideojuegos", 4],
-  ["charlasobrelaautoria", 5],
   ["charlasobreilustracion", 8],
   ["tallerdeceramica", 9],
   ["batalladebaile", 10],
-  ["mesaredondedeartesgraficas", 6],
-  ["tallerconcursocomic", 7],
+  ["mesaredondaartesgraficas", 6],
+  ["tallerconcursodecomic", 7],
+  ["mesaredondadeliteratura", 11],
 ])
 
 const aliasPuestos = new Map<string, number>([])
