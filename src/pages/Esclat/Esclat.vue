@@ -12,7 +12,6 @@ import { RouterLink } from "vue-router"
 <template>
   <div class="w-full mt-20 relative overflow-x-hidden">
     
-    <!-- HERO SECTION - ROSA -->
     <section class="relative flex flex-col bg-[#eb378d]">
       
       <img
@@ -22,8 +21,8 @@ import { RouterLink } from "vue-router"
         class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
       />
 
-      <div class="absolute inset-0 z-10 flex items-center px-6 md:px-10 lg:px-14 pointer-events-none">
-        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none max-w-4xl uppercase">
+      <div class="absolute inset-0 z-20 flex items-center px-6 md:px-10 lg:px-14 pointer-events-none">
+        <h1 class="text-white text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none max-w-4xl uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
           Festival de creación<br>emergente y comunidad
         </h1>
       </div>
@@ -34,7 +33,7 @@ import { RouterLink } from "vue-router"
         :opts="{ align: 'start', loop: true }"
       >
         <CarouselContent>
-          <CarouselItem v-for="n in 4" :key="n" class="basis-full">
+          <CarouselItem v-for="n in 3" :key="n" class="basis-full">
             <div class="w-screen h-[50vh]">
               <img
                 :src="`/images/naves${n}.jpg`"
@@ -47,7 +46,6 @@ import { RouterLink } from "vue-router"
 
     </section>
 
-    <!-- FILOSOFÍA - MORADO -->
     <section class="relative bg-[#371e58]">
       <img
         src="/images/estampado_esclat.png"
@@ -58,7 +56,7 @@ import { RouterLink } from "vue-router"
       
       <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 lg:px-14 py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-[#eb378d] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Filosofía</h2>
+          <h2 class="text-[#bcd432] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Filosofía</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium">
             Esclat nace como una plataforma cercana, interactiva y diversa para artistas emergentes. Un lugar donde la escritura, las artes visuales, la música y el pensamiento se encuentran para celebrar el trabajo creativo, abrir conversación e inspirar nuevas formas de mirar.
           </p>
@@ -69,7 +67,6 @@ import { RouterLink } from "vue-router"
       </div>
     </section>
 
-    <!-- ARTISTAS + TALLERES - ROSA -->
     <section class="relative bg-[#eb378d]">
       <img
         src="/images/estampado_esclat.png"
@@ -86,7 +83,7 @@ import { RouterLink } from "vue-router"
         <div class="order-1 md:order-2">
           <h2 class="text-white text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Artistas y talleres</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium mb-8">
-            El festival ensalza las iniciativas colectivas y la colaboración como motor de ideas más vivas. Por eso el público también forma parte del proceso: talleres, debates, conciertos, concursos y encuentros pensados para activar una comunidad creativa.
+            El festival ensalza las initiatives colectivas y la colaboración como motor de ideas más vivas. Por eso el público también forma parte del proceso: talleres, debates, conciertos, concursos y encuentros pensados para activar una comunidad creativa.
           </p>
           <div class="flex flex-wrap gap-4">
             <RouterLink
@@ -106,7 +103,6 @@ import { RouterLink } from "vue-router"
       </div>
     </section>
 
-    <!-- LAS NAVES - MORADO -->
     <section class="relative bg-[#371e58]">
       <img
         src="/images/estampado_esclat.png"
@@ -117,7 +113,7 @@ import { RouterLink } from "vue-router"
 
       <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 lg:px-14 py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-[#eb378d] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Las Naves</h2>
+          <h2 class="text-[#bcd432] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Las Naves</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium mb-8">
             En Las Naves, Esclat convierte el encuentro en una oportunidad efímera para dialogar, explorar y disfrutar. Durante el festival, cada espacio se abre a la mezcla entre disciplinas, personas y proyectos que solo pueden aparecer cuando se crea en común.
           </p>
@@ -128,7 +124,7 @@ import { RouterLink } from "vue-router"
           :opts="{ align: 'start', loop: true }"
         >
           <CarouselContent>
-            <CarouselItem v-for="n in 4" :key="n" class="basis-full">
+            <CarouselItem v-for="n in 3" :key="n" class="basis-full">
               <div class="h-[70vh]">
                 <img
                   :src="`/images/naves${n}.jpg`"
@@ -141,25 +137,39 @@ import { RouterLink } from "vue-router"
       </div>
     </section>
 
-    <!-- NAVEGACIÓN FINAL - ROSA -->
-    <div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32">
-      <img
-        src="/images/estampado_esclat.png"
-        alt=""
-        aria-hidden="true"
-        class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
-      />
-      
-      <p class="relative z-10 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight uppercase mb-20">
-        Sigue explorando Esclat
-      </p>
-      <div class="relative z-10 flex flex-wrap justify-center gap-8">
-        <RouterLink to="/" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Home</RouterLink>
-        <RouterLink to="/esclat" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Esclat</RouterLink>
-        <RouterLink to="/artistas" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Artistas</RouterLink>
-        <RouterLink to="/programa" class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-white hover:text-[#eb378d] hover:scale-105 transition-all duration-200">Programa</RouterLink>
-      </div>
-    </div>
+    <!-- ÚLTIMA SECCIÓN MODIFICADA -->
+<div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32">
+  <img
+    src="/images/estampado_esclat.png"
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-85 mix-blend-multiply"
+  />
+
+  <p class="relative z-10 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight uppercase mb-20">
+    Sigue explorando Esclat
+  </p>
+
+  <div class="relative z-10 flex flex-wrap justify-center gap-8">
+    <RouterLink
+      to="/esclat/characters"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+    >
+      Personajes
+    </RouterLink>
+
+    <button
+      type="button"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+    >
+      Spot
+    </button>
+  </div>
+</div>
 
   </div>
 </template>
+
+<style scoped>
+/* Estilos extra si fuesen necesarios */
+</style>

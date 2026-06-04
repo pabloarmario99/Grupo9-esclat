@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { RouterLink } from 'vue-router'
 
 // Definir días del evento
 const diasEvento = ['viernes', 'sabado', 'domingo'] as const
@@ -16,7 +17,7 @@ type DiaEvento = typeof diasEvento[number]
 
 // Definir interfaces
 interface EntradaDia {
-  tipo: 'ninguno' | 'medio' | 'completo'
+  tipo: 'ninguno' | 'basica' | 'merch'
   precio: number
 }
 
@@ -48,48 +49,34 @@ const entradas = ref<EntradasType>({
   domingo: { tipo: 'ninguno', precio: 0 }
 })
 
-const incluyeMerch = ref<boolean>(false)
+const incluyeVip = ref<boolean>(false)
 
-// Precios
+// Precios actualizados
 const precios = {
-  medio: 3,
-  completo: 5,
-  pack3Dias: 12
+  basica: 0,
+  merch: 5,
+  vip: 10
 }
 
-// Calcular precio total
+// Calcular precio total dinámicamente
 const precioTotal = computed<number>(() => {
   let total = 0
-  let diasSeleccionados = 0
-  let diasCompletos = 0
+  let tieneAlgunaEntrada = false
   
-  // Contar días seleccionados
+  // Calcular precio acumulado de los días seleccionados
   diasEvento.forEach(dia => {
-    if (entradas.value[dia].tipo !== 'ninguno') {
-      diasSeleccionados++
-      if (entradas.value[dia].tipo === 'completo') {
-        diasCompletos++
-      }
+    if (entradas.value[dia].tipo === 'basica') {
+      total += precios.basica
+      tieneAlgunaEntrada = true
+    } else if (entradas.value[dia].tipo === 'merch') {
+      total += precios.merch
+      tieneAlgunaEntrada = true
     }
   })
   
-  // Si selecciona los 3 días completos, aplicamos pack
-  if (diasSeleccionados === 3 && diasCompletos === 3) {
-    total = precios.pack3Dias
-  } else {
-    // Calcular precio normal
-    diasEvento.forEach(dia => {
-      if (entradas.value[dia].tipo === 'medio') {
-        total += precios.medio
-      } else if (entradas.value[dia].tipo === 'completo') {
-        total += precios.completo
-      }
-    })
-  }
-  
-  // Añadir merch si está seleccionado
-  if (incluyeMerch.value && total > 0) {
-    total += 1
+  // Añadir suplemento VIP si está seleccionado y tiene al menos una entrada elegida
+  if (incluyeVip.value && tieneAlgunaEntrada) {
+    total += precios.vip
   }
   
   return total
@@ -98,14 +85,14 @@ const precioTotal = computed<number>(() => {
 // Aforo disponible
 const aforoDisponible = computed<number>(() => aforoMaximo - entradasVendidas.value)
 
-// Actualizar precio cuando cambia tipo de entrada
+// Actualizar precio cuando cambia tipo de entrada en los Selects
 const actualizarPrecio = (dia: DiaEvento, tipo: string) => {
-  entradas.value[dia].tipo = tipo as 'ninguno' | 'medio' | 'completo'
+  entradas.value[dia].tipo = tipo as 'ninguno' | 'basica' | 'merch'
   
-  if (tipo === 'medio') {
-    entradas.value[dia].precio = precios.medio
-  } else if (tipo === 'completo') {
-    entradas.value[dia].precio = precios.completo
+  if (tipo === 'basica') {
+    entradas.value[dia].precio = precios.basica
+  } else if (tipo === 'merch') {
+    entradas.value[dia].precio = precios.merch
   } else {
     entradas.value[dia].precio = 0
   }
@@ -146,30 +133,26 @@ const enviarCompra = async (): Promise<void> => {
     return
   }
   
-  // Simular envío de correo
+  // Simular envío
   const confirmacion = {
     usuario: datosUsuario.value,
     entradas: entradas.value,
     total: precioTotal.value,
-    merch: incluyeMerch.value,
+    vip: incluyeVip.value,
     fecha: new Date().toLocaleString()
   }
   
   console.log('Compra realizada:', confirmacion)
   
-  // Simular envío de email
   alert(`¡Compra confirmada!\n\nSe ha enviado un correo a ${datosUsuario.value.email}\nTotal: ${precioTotal.value}€\n\n¡Gracias por tu compra!`)
   
   // Actualizar aforo
   entradasVendidas.value++
 }
-
-// Resetear formulario (opcional)
 </script>
 
 <template>
   <div class="w-full mt-20 overflow-x-hidden bg-[#eb378d] text-white">
-    <!-- HERO SECTION - ROSA -->
     <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
       <img
         src="/images/estampado_esclat.png"
@@ -186,12 +169,11 @@ const enviarCompra = async (): Promise<void> => {
           Reserva tu lugar en Esclat
         </h1>
         <p class="mt-5 max-w-2xl text-base font-medium leading-relaxed text-white/90">
-          Elige tus días, suma el merch si te apetece y recibe tu entrada por correo para formar parte del festival.
+          Elige tus días, añade el pase VIP si quieres exprimir al máximo la experiencia y recibe tus pases directamente por correo.
         </p>
       </div>
     </section>
 
-    <!-- AFORO SECTION - MORADO -->
     <section class="relative bg-[#371e58] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
       <img
         src="/images/estampado_esclat.png"
@@ -216,7 +198,6 @@ const enviarCompra = async (): Promise<void> => {
       </div>
     </section>
 
-    <!-- PRICING + SCHEDULE - ROSA -->
     <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
       <img
         src="/images/estampado_esclat.png"
@@ -233,20 +214,16 @@ const enviarCompra = async (): Promise<void> => {
 
           <div class="space-y-3">
             <div class="flex items-center justify-between gap-6 py-3">
-              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Medio día (tarde)</span>
-              <span class="text-3xl font-semibold text-white">3€</span>
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Entrada Básica</span>
+              <span class="text-3xl font-semibold text-white">Gratis</span>
             </div>
             <div class="flex items-center justify-between gap-6 py-3">
-              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Día completo</span>
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Entrada + Merch</span>
               <span class="text-3xl font-semibold text-white">5€</span>
             </div>
             <div class="flex items-center justify-between gap-6 py-3">
-              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Pack especial 3 días completos</span>
-              <span class="text-3xl font-semibold text-white">12€</span>
-            </div>
-            <div class="flex items-center justify-between gap-6 py-3">
-              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Merchandising oficial</span>
-              <span class="text-3xl font-semibold text-white">+1€</span>
+              <span class="text-base font-medium uppercase leading-relaxed text-white/90">Pase VIP</span>
+              <span class="text-3xl font-semibold text-white">+10€</span>
             </div>
           </div>
         </div>
@@ -259,15 +236,15 @@ const enviarCompra = async (): Promise<void> => {
           <div class="space-y-3">
             <div class="py-3">
               <p class="text-xl font-semibold uppercase tracking-tight text-white">Viernes 20</p>
-              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+              <p class="mt-2 text-base font-medium text-white/85">Apertura de puertas y eventos: 10:00 - 21:00</p>
             </div>
             <div class="py-3">
               <p class="text-xl font-semibold uppercase tracking-tight text-white">Sábado 21</p>
-              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+              <p class="mt-2 text-base font-medium text-white/85">Apertura de puertas y eventos: 10:00 - 21:00</p>
             </div>
             <div class="py-3">
               <p class="text-xl font-semibold uppercase tracking-tight text-white">Domingo 22</p>
-              <p class="mt-2 text-base font-medium text-white/85">Tarde: 16:00 - 21:00 | Completo: 10:00 - 21:00</p>
+              <p class="mt-2 text-base font-medium text-white/85">Apertura de puertas y eventos: 10:00 - 21:00</p>
             </div>
           </div>
         </div>
@@ -275,7 +252,6 @@ const enviarCompra = async (): Promise<void> => {
     </section>
 
     <form @submit.prevent="enviarCompra">
-      <!-- FORM SECTION - MORADO -->
       <section class="relative bg-[#371e58] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
         <img
           src="/images/estampado_esclat.png"
@@ -289,16 +265,25 @@ const enviarCompra = async (): Promise<void> => {
             <p class="mb-4 text-base font-medium uppercase leading-relaxed text-white/90">
               Compra
             </p>
+
             <h2 class="text-4xl font-semibold uppercase tracking-tight text-[#eb378d] sm:text-5xl md:text-6xl">
               Tus datos y entradas
             </h2>
+
             <p class="mt-6 max-w-md text-base font-medium leading-relaxed text-white/90">
               Completa la información necesaria para recibir tu confirmación de acceso.
             </p>
+
+            <!-- BOTÓN ACTUALIZADO (VERDE CONSTANTE, TEXTO MORADO, HOVER SÓLO DE TAMAÑO) -->
+            <RouterLink
+              to="/entradas-acceso/merch"
+              class="mt-8 inline-flex items-center bg-[#bcd432] px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-[#371e58] transition-transform duration-200 hover:scale-105"
+            >
+              Ver más merchandising
+            </RouterLink>
           </div>
 
           <div class="space-y-14">
-            <!-- Datos personales -->
             <div>
               <h3 class="mb-6 text-2xl font-semibold uppercase tracking-tight text-white">
                 Datos personales
@@ -323,69 +308,64 @@ const enviarCompra = async (): Promise<void> => {
               </div>
             </div>
 
-            <!-- Selección de entradas por día -->
             <div>
               <h3 class="mb-6 text-2xl font-semibold uppercase tracking-tight text-white">
                 Selecciona tus entradas
               </h3>
               <div class="grid gap-5 sm:grid-cols-3">
-                <!-- Viernes -->
                 <div>
                   <Label class="festival-label">Viernes</Label>
                   <Select @update:model-value="(val: any) => actualizarPrecio('viernes', val)">
-                    <SelectTrigger class="festival-select">
+                    <SelectTrigger class="w-full p-3 bg-transparent text-[#eb378d] font-bold rounded-none border border-[#eb378d] outline-none text-sm tracking-wide h-auto focus:ring-0 focus:ring-offset-0">
                       <SelectValue placeholder="Seleccionar entrada" />
                     </SelectTrigger>
-                    <SelectContent class="festival-select-content">
-                      <SelectItem value="ninguno">Sin entrada</SelectItem>
-                      <SelectItem value="medio">Medio día - 3€</SelectItem>
-                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    <SelectContent class="bg-[#eb378d] border-none rounded-none p-0 min-w-(--radix-select-trigger-width)">
+                      <SelectItem value="ninguno" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Sin entrada</SelectItem>
+                      <SelectItem value="basica" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada Básica - Gratis</SelectItem>
+                      <SelectItem value="merch" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada + Merch - 5€</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
-                <!-- Sábado -->
                 <div>
                   <Label class="festival-label">Sábado</Label>
                   <Select @update:model-value="(val: any) => actualizarPrecio('sabado', val)">
-                    <SelectTrigger class="festival-select">
+                    <SelectTrigger class="w-full p-3 bg-transparent text-[#eb378d] font-bold rounded-none border border-[#eb378d] outline-none text-sm tracking-wide h-auto focus:ring-0 focus:ring-offset-0">
                       <SelectValue placeholder="Seleccionar entrada" />
                     </SelectTrigger>
-                    <SelectContent class="festival-select-content">
-                      <SelectItem value="ninguno">Sin entrada</SelectItem>
-                      <SelectItem value="medio">Medio día - 3€</SelectItem>
-                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    <SelectContent class="bg-[#eb378d] border-none rounded-none p-0 min-w-(--radix-select-trigger-width)">
+                      <SelectItem value="ninguno" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Sin entrada</SelectItem>
+                      <SelectItem value="basica" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada Básica - Gratis</SelectItem>
+                      <SelectItem value="merch" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada + Merch - 5€</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
-                <!-- Domingo -->
                 <div>
                   <Label class="festival-label">Domingo</Label>
                   <Select @update:model-value="(val: any) => actualizarPrecio('domingo', val)">
-                    <SelectTrigger class="festival-select">
+                    <SelectTrigger class="w-full p-3 bg-transparent text-[#eb378d] font-bold rounded-none border border-[#eb378d] outline-none text-sm tracking-wide h-auto focus:ring-0 focus:ring-offset-0">
                       <SelectValue placeholder="Seleccionar entrada" />
                     </SelectTrigger>
-                    <SelectContent class="festival-select-content">
-                      <SelectItem value="ninguno">Sin entrada</SelectItem>
-                      <SelectItem value="medio">Medio día - 3€</SelectItem>
-                      <SelectItem value="completo">Día completo - 5€</SelectItem>
+                    <SelectContent class="bg-[#eb378d] border-none rounded-none p-0 min-w-(--radix-select-trigger-width)">
+                      <SelectItem value="ninguno" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Sin entrada</SelectItem>
+                      <SelectItem value="basica" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada Básica - Gratis</SelectItem>
+                      <SelectItem value="merch" class="text-[#371e58] font-bold rounded-none p-3 text-sm tracking-wide cursor-pointer uppercase transition-colors data-highlighted:bg-[#371e58] data-highlighted:text-[#eb378d] focus:bg-[#371e58] focus:text-[#eb378d]">Entrada + Merch - 5€</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
             </div>
 
-            <!-- Merchandising -->
             <div class="py-2">
               <label class="flex cursor-pointer items-center justify-between gap-8">
                 <div>
-                  <span class="text-base font-semibold uppercase tracking-tight text-white">Merchandising oficial</span>
-                  <p class="mt-1 text-sm font-medium text-white/70">Pulsera + pegatinas + llavero (1€)</p>
+                  <span class="text-base font-semibold uppercase tracking-tight text-white">Pase VIP</span>
+                  <p class="mt-1 text-sm font-medium text-white/70">Acceso exclusivo a zonas de descanso + oportunidad de conocer a los grupos (+10€)</p>
                 </div>
                 <input
                   type="checkbox"
-                  v-model="incluyeMerch"
+                  v-model="incluyeVip"
                   class="h-6 w-6 accent-[#bcd432]"
                 />
               </label>
@@ -394,7 +374,6 @@ const enviarCompra = async (): Promise<void> => {
         </div>
       </section>
 
-      <!-- SUMMARY SECTION - ROSA -->
       <section class="relative bg-[#eb378d] px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
         <img
           src="/images/estampado_esclat.png"
@@ -452,8 +431,7 @@ const enviarCompra = async (): Promise<void> => {
   text-transform: uppercase;
 }
 
-.festival-input,
-.festival-select {
+.festival-input {
   min-height: 3.25rem;
   border-color: #eb378d;
   background-color: transparent;
@@ -462,22 +440,12 @@ const enviarCompra = async (): Promise<void> => {
   font-weight: 700;
 }
 
-.festival-input:focus,
-.festival-select:focus,
-.festival-select:focus-visible {
+.festival-input:focus {
   border-color: #eb378d;
   box-shadow: 0 0 0 3px rgba(235, 55, 141, 0.24);
 }
 
 .festival-input::placeholder {
   color: rgba(235, 55, 141, 0.65);
-}
-
-.festival-select-content {
-  border-color: #eb378d;
-  background-color: #eb378d;
-  color: #371e58;
-  border-radius: 0;
-  font-weight: 700;
 }
 </style>

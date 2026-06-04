@@ -9,6 +9,9 @@ import ArtistaDetail from "@/pages/Artistas/ArtistaDetail.vue"
 import TallerDetail from "@/pages/Artistas/TallerDetail.vue"
 import PuestoDetail from "@/pages/Artistas/PuestoDetail.vue"
 import EntradasAcceso from "@/pages/EntradasAcceso/EntradasAcceso.vue"
+import Merch from "@/pages/merch/Merch.vue" // <-- nuevo import
+import Characters from "@/pages/characters/Characters.vue" 
+import CharactersDetail from "@/pages/characters/CharactersDetail.vue"  
 
 // layout
 import Layout from "@/pages/Layout/Layout.vue"
@@ -39,6 +42,24 @@ export const router = createRouter({
           name: "programa",
           component: Programa
         },
+
+        {
+  path: "esclat/characters",
+  name: "characters",
+  component: Characters
+},
+
+{
+          path: "esclat/characters/:id",
+          name: "character-detail",
+          component: CharactersDetail
+        },
+
+{
+  path: "entradas-acceso/merch",
+  name: "merch",
+  component: Merch
+},
 
         // ARTISTAS
         {

@@ -11,7 +11,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-
 </script>
 
 <template>
@@ -34,12 +33,11 @@ import Autoplay from 'embla-carousel-autoplay'
       <section class="artistas-section">
         <p class="artistas-section-title">Grupos</p>
         <Carousel
-          :plugins="[Autoplay({
-            delay: 3000,
-          })]"
+          :plugins="[Autoplay({ delay: 1800 })]"
           :opts="{
             align: 'start',
             loop: true,
+            duration: 15,
           }"
         >
           <CarouselContent>
@@ -79,12 +77,11 @@ import Autoplay from 'embla-carousel-autoplay'
       <section class="artistas-section">
         <p class="artistas-section-title">Talleres y charlas</p>
         <Carousel
-          :plugins="[Autoplay({
-            delay: 3000,
-          })]"
+          :plugins="[Autoplay({ delay: 1800 })]"
           :opts="{
             align: 'start',
             loop: true,
+            duration: 15,
           }"
         >
           <CarouselContent>
@@ -119,12 +116,11 @@ import Autoplay from 'embla-carousel-autoplay'
       <section class="artistas-section">
         <p class="artistas-section-title">Puestos</p>
         <Carousel
-          :plugins="[Autoplay({
-            delay: 3000,
-          })]"
+          :plugins="[Autoplay({ delay: 1800 })]"
           :opts="{
             align: 'start',
             loop: true,
+            duration: 15,
           }"
         >
           <CarouselContent>
@@ -157,8 +153,35 @@ import Autoplay from 'embla-carousel-autoplay'
       </section>
       </div>
     </div>
+
+
+    <!-- ÚLTIMA SECCIÓN MODIFICADA -->
+<div class="relative flex flex-col items-center text-center px-6 md:px-10 lg:px-14 py-18">
+  
+
+  <p class="relative z-10 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight uppercase mb-20">
+    Sigue explorando Esclat
+  </p>
+
+  <div class="relative z-10 flex flex-wrap justify-center gap-8">
+    <RouterLink
+      to="/esclat/characters"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+    >
+      Personajes
+    </RouterLink>
+
+    <button
+      type="button"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+    >
+      Spot
+    </button>
   </div>
- 
+</div>
+
+
+  </div>
 </template>
 
 <style scoped>
