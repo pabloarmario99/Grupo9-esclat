@@ -23,7 +23,7 @@ import { RouterLink } from "vue-router"
 
       <div class="absolute inset-0 z-20 flex items-center px-6 md:px-10 lg:px-14 pointer-events-none">
         <h1 class="text-white text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none max-w-4xl uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
-          Festival de creaciÃ³n<br>emergente y comunidad
+          Festival de creación<br>emergente y comunidad
         </h1>
       </div>
 
@@ -56,9 +56,9 @@ import { RouterLink } from "vue-router"
       
       <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 lg:px-14 py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-[#bdd434] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">FilosofÃ­a</h2>
+          <h2 class="text-[#bdd434] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Filosofía</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium">
-            Esclat nace como una plataforma cercana, interactiva y diversa para artistas emergentes. Un lugar donde la escritura, las artes visuales, la mÃºsica y el pensamiento se encuentran para celebrar el trabajo creativo, abrir conversaciÃ³n e inspirar nuevas formas de mirar.
+            Esclat nace como una plataforma cercana, interactiva y diversa para artistas emergentes. Un lugar donde la escritura, las artes visuales, la música y el pensamiento se encuentran para celebrar el trabajo creativo, abrir conversación e inspirar nuevas formas de mirar.
           </p>
         </div>
         <div class="h-[60vh]">
@@ -83,7 +83,7 @@ import { RouterLink } from "vue-router"
         <div class="order-1 md:order-2">
           <h2 class="text-white text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Artistas y talleres</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium mb-8">
-            El festival ensalza las initiatives colectivas y la colaboraciÃ³n como motor de ideas mÃ¡s vivas. Por eso el pÃºblico tambiÃ©n forma parte del proceso: talleres, debates, conciertos, concursos y encuentros pensados para activar una comunidad creativa.
+            El festival ensalza las initiatives colectivas y la colaboración como motor de ideas más vivas. Por eso el público también forma parte del proceso: talleres, debates, conciertos, concursos y encuentros pensados para activar una comunidad creativa.
           </p>
           <div class="flex flex-wrap gap-4">
             <RouterLink
@@ -96,7 +96,7 @@ import { RouterLink } from "vue-router"
               to="/programa"
               class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-8 py-4 hover:bg-white hover:text-[#eb378d] transition-all duration-200"
             >
-              Ver programaciÃ³n
+              Ver programación
             </RouterLink>
           </div>
         </div>
@@ -115,7 +115,7 @@ import { RouterLink } from "vue-router"
         <div>
           <h2 class="text-[#bdd434] text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6 uppercase">Las Naves</h2>
           <p class="text-white/90 text-base leading-relaxed font-medium mb-8">
-            En Las Naves, Esclat convierte el encuentro en una oportunidad efÃ­mera para dialogar, explorar y disfrutar. Durante el festival, cada espacio se abre a la mezcla entre disciplinas, personas y proyectos que solo pueden aparecer cuando se crea en comÃºn.
+            En Las Naves, Esclat convierte el encuentro en una oportunidad efímera para dialogar, explorar y disfrutar. Durante el festival, cada espacio se abre a la mezcla entre disciplinas, personas y proyectos que solo pueden aparecer cuando se crea en común.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ import { RouterLink } from "vue-router"
       </div>
     </section>
 
-    <!-- ÃšLTIMA SECCIÃ“N MODIFICADA -->
+    <!-- ÚLTIMA SECCIÓN MODIFICADA -->
 <div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32">
   <img
     src="/images/estampado_esclat.png"

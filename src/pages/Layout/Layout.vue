@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView, RouterLink, useRoute } from 'vue-router'
 import { ref, watch } from 'vue'
-import { Menu } from 'lucide-vue-next'
+import { Menu, Ticket } from 'lucide-vue-next'
 
 const isSidebarOpen = ref(false)
 const route = useRoute()
@@ -31,19 +31,19 @@ watch(
     </RouterLink>
 
     <nav class="hidden md:flex items-center gap-8 text-white text-sm font-semibold tracking-wide uppercase">
-      <RouterLink to="/esclat" class="hover:text-[#bcd432] transition-colors">
+      <RouterLink to="/esclat" class="hover:text-[#bdd434] transition-colors">
         INFORMACIÓN
       </RouterLink>
 
-      <RouterLink to="/programa" class="hover:text-[#bcd432] transition-colors">
+      <RouterLink to="/programa" class="hover:text-[#bdd434] transition-colors">
         PROGRAMACIÓN
       </RouterLink>
 
-      <RouterLink to="/artistas" class="hover:text-[#bcd432] transition-colors">
+      <RouterLink to="/artistas" class="hover:text-[#bdd434] transition-colors">
         ARTISTAS
       </RouterLink>
 
-      <RouterLink to="/entradas-acceso" class="hover:text-[#bcd432] transition-colors">
+      <RouterLink to="/entradas-acceso" class="hover:text-[#bdd434] transition-colors">
         ENTRADAS
       </RouterLink>
     </nav>
@@ -72,19 +72,19 @@ watch(
       :class="isSidebarOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="flex flex-col gap-10 p-5">
-        <RouterLink to="/esclat" class="text-white font-medium hover:text-[#bcd432] transition-all">
+        <RouterLink to="/esclat" class="text-white font-medium hover:text-[#bdd434] transition-all">
           INFORMACIÓN
         </RouterLink>
 
-        <RouterLink to="/programa" class="text-white font-medium hover:text-[#bcd432] transition-all">
+        <RouterLink to="/programa" class="text-white font-medium hover:text-[#bdd434] transition-all">
           PROGRAMACIÓN
         </RouterLink>
 
-        <RouterLink to="/artistas" class="text-white font-medium hover:text-[#bcd432] transition-all">
+        <RouterLink to="/artistas" class="text-white font-medium hover:text-[#bdd434] transition-all">
           ARTISTAS
         </RouterLink>
 
-        <RouterLink to="/entradas-acceso" class="text-white font-medium hover:text-[#bcd432] transition-all">
+        <RouterLink to="/entradas-acceso" class="text-white font-medium hover:text-[#bdd434] transition-all">
           ENTRADAS
         </RouterLink>
       </div>
@@ -93,10 +93,11 @@ watch(
 
  <button
   v-if="route.path !== '/entradas-acceso'"
-  class="fixed bottom-4 right-4 z-50 bg-[#eb378d] text-white font-semibold px-8 py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase"
+  class="fixed bottom-4 right-4 z-50 bg-[#bdd434] text-white font-semibold p-4 md:px-8 md:py-4 mb-5 shadow-lg hover:bg-white hover:text-[#eb378d] uppercase"
 >
-  <RouterLink to="/entradas-acceso">
-    Comprar entradas
+  <RouterLink to="/entradas-acceso" aria-label="Comprar entradas">
+    <Ticket class="size-6 md:hidden" />
+    <span class="hidden md:inline">Comprar entradas</span>
   </RouterLink>
 </button>
 

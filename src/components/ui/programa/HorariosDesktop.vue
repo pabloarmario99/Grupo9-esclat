@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { artistas } from "@/data/artistas"
+import { talleres } from "@/data/talleres"
+import { puestos } from "@/data/puestos"
 import { 
   horas, 
   escenarios, 
@@ -55,6 +57,21 @@ const aliasArtistas = new Map<string, number>([
   ["eddsh", 10],
 ])
 
+const aliasTalleres = new Map<string, number>([
+  ["tallerdelafotografia", 1],
+  ["mesaredondemusica", 2],
+  ["sesiondecine", 3],
+  ["torneodevideojuegos", 4],
+  ["charlasobrelaautoria", 5],
+  ["charlasobreilustracion", 8],
+  ["tallerdeceramica", 9],
+  ["batalladebaile", 10],
+  ["mesaredondedeartesgraficas", 6],
+  ["tallerconcursocomic", 7],
+])
+
+const aliasPuestos = new Map<string, number>([])
+
 const mapaArtistas = computed(() => {
   const mapa = new Map<string, number>()
   artistas.forEach((artista) => {
@@ -63,13 +80,49 @@ const mapaArtistas = computed(() => {
   return mapa
 })
 
-const artistaLink = computed(() => {
+const mapaTalleres = computed(() => {
+  const mapa = new Map<string, number>()
+  talleres.forEach((taller) => {
+    mapa.set(normalizarNombre(taller.nombre), taller.id)
+  })
+  return mapa
+})
+
+const mapaPuestos = computed(() => {
+  const mapa = new Map<string, number>()
+  puestos.forEach((puesto) => {
+    mapa.set(normalizarNombre(puesto.nombre), puesto.id)
+  })
+  return mapa
+})
+
+const detalleLink = computed(() => {
   const nombre = eventoSeleccionado.value?.artista
   if (!nombre) return null
 
   const clave = normalizarNombre(nombre)
+  const evento = eventoSeleccionado.value
+
+  if (evento?.genero === "Taller") {
+    const tallerId = aliasTalleres.get(clave) ?? mapaTalleres.value.get(clave)
+    return tallerId
+      ? { path: `/artistas/taller/${tallerId}`, label: "Ver detalles del taller" }
+      : { path: "/artistas", label: "Ver talleres" }
+  }
+
+  if (clave.includes("puesto") || clave.includes("puestos")) {
+    return { path: "/artistas", label: "Ver puestos" }
+  }
+
+  const puestoId = aliasPuestos.get(clave) ?? mapaPuestos.value.get(clave)
+  if (puestoId) {
+    return { path: `/artistas/puesto/${puestoId}`, label: "Ver detalles del puesto" }
+  }
+
   const artistaId = aliasArtistas.get(clave) ?? mapaArtistas.value.get(clave)
-  return artistaId ? `/artistas/${artistaId}` : null
+  return artistaId
+    ? { path: `/artistas/${artistaId}`, label: "Ver detalles del artista" }
+    : { path: "/artistas", label: "Ver artistas" }
 })
 </script>
 
@@ -139,13 +192,13 @@ const artistaLink = computed(() => {
           </DrawerHeader>
 
           <div class="p-2">
-            <RouterLink v-if="artistaLink" :to="artistaLink" class="block">
+            <RouterLink v-if="detalleLink" :to="detalleLink.path" class="block">
               <Button class="w-full bg-[#eb378d] text-[#371e58] hover:bg-[#ffffff] hover:text-[#eb378d] font-black tracking-wider py-6 rounded-none uppercase transition-colors duration-200">
-                Ver detalles del artista
+                {{ detalleLink?.label }}
               </Button>
             </RouterLink>
             <Button v-else disabled class="w-full bg-[#eb378d]/50 text-[#371e58]/70 font-black tracking-wider py-6 rounded-none uppercase cursor-not-allowed">
-              Ver detalles del artista
+              Ver detalles
             </Button>
           </div>
 

@@ -187,11 +187,11 @@ const enviarCompra = async (): Promise<void> => {
           Aforo disponible
         </h2>
 
-        <div class="border-2 border-[#bcd432] px-6 py-8 text-center md:px-10">
+        <div class="border-2 border-[#bdd434] px-6 py-8 text-center md:px-10">
           <p class="text-3xl font-semibold uppercase leading-none tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             {{ aforoDisponible }} / {{ aforoMaximo }}
           </p>
-          <p class="mt-4 text-base font-medium uppercase leading-relaxed text-[#bcd432]">
+          <p class="mt-4 text-base font-medium uppercase leading-relaxed text-[#bdd434]">
             Últimas entradas disponibles
           </p>
         </div>
@@ -277,7 +277,7 @@ const enviarCompra = async (): Promise<void> => {
             <!-- BOTÓN ACTUALIZADO (VERDE CONSTANTE, TEXTO MORADO, HOVER SÓLO DE TAMAÑO) -->
             <RouterLink
               to="/entradas-acceso/merch"
-              class="mt-8 inline-flex items-center bg-[#bcd432] px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-[#371e58] transition-transform duration-200 hover:scale-105"
+              class="mt-8 inline-flex items-center bg-[#bdd434] px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-[#371e58] transition-transform duration-200 hover:scale-105"
             >
               Ver más merchandising
             </RouterLink>
@@ -366,7 +366,7 @@ const enviarCompra = async (): Promise<void> => {
                 <input
                   type="checkbox"
                   v-model="incluyeVip"
-                  class="h-6 w-6 accent-[#bcd432]"
+                  class="h-6 w-6 accent-[#bdd434]"
                 />
               </label>
             </div>

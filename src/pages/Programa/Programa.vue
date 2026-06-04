@@ -62,14 +62,14 @@ import { mapaHorarios } from "@/data/horariosData"
   <div class="relative z-10 flex flex-wrap justify-center gap-8">
     <RouterLink
       to="/esclat/characters"
-      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bdd434] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
     >
       Personajes
     </RouterLink>
 
     <button
       type="button"
-      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bcd432] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
+      class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bdd434] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
     >
       Spot
     </button>
