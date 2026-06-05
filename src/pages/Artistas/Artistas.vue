@@ -171,12 +171,14 @@ import Autoplay from 'embla-carousel-autoplay'
       Personajes
     </RouterLink>
 
-    <button
-      type="button"
+    <a
+      href="https://media.upv.es/player/?id=e82f8410-611d-11f1-9113-9f2411f7738e"
+      target="_blank"
+      rel="noopener noreferrer"
       class="inline-block bg-[#371e58] text-white uppercase font-bold tracking-widest text-base px-10 py-5 hover:bg-[#bdd434] hover:text-[#371e58] hover:scale-105 transition-all duration-200"
     >
       Spot
-    </button>
+    </a>
   </div>
 </div>
 
