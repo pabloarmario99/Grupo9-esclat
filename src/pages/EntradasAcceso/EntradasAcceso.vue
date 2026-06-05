@@ -167,7 +167,7 @@ const enviarCompra = async (): Promise<void> => {
       ENTRADAS
     </h1>
    <p class="programa-intro-text px-6 pb-4 font-medium">
-    Reserva tu acceso al festival, consulta los horarios, descubre las distintas modalidades de entrada y personaliza tu experiencia con merchandising y pase VIP. Toda la información necesaria para disfrutar de Esclat desde el primer día.
+     Reserva tu acceso al festival, consulta los horarios, descubre las distintas modalidades de entrada y personaliza tu experiencia con merchandising y pase VIP. Toda la información necesaria para disfrutar de Esclat desde el primer día.
 </p>
   </section>
 </section>
@@ -273,10 +273,10 @@ const enviarCompra = async (): Promise<void> => {
               Completa la información necesaria para recibir tu confirmación de acceso.
             </p>
 
-            <!-- BOTÓN ACTUALIZADO (VERDE CONSTANTE, TEXTO MORADO, HOVER SÓLO DE TAMAÑO) -->
+            <!-- BOTÓN MODIFICADO (MÁS GRANDE, FUENTE EN LG, MÁS RELLENO Y ANCHO ADAPTATIVO) -->
             <RouterLink
               to="/entradas-acceso/merch"
-              class="mt-8 inline-flex items-center bg-[#bdd434] px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-[#371e58] transition-transform duration-200 hover:scale-105"
+              class="mt-8 inline-flex w-full sm:w-auto items-center justify-center bg-[#bdd434] px-10 py-5 text-lg font-black uppercase tracking-[0.25em] text-[#371e58] transition-all duration-200 hover:scale-105 shadow-lg"
             >
               Ver más merchandising
             </RouterLink>

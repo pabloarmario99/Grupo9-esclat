@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { RouterView, RouterLink, useRoute } from 'vue-router'
 import { ref, watch } from 'vue'
-import { Menu, Ticket } from 'lucide-vue-next'
+// CAMBIO: Añadido "Instagram" a las importaciones de lucide-vue-next
+import { Menu, Ticket, Instagram } from 'lucide-vue-next'
 
 const isSidebarOpen = ref(false)
 const route = useRoute()
@@ -105,55 +106,54 @@ watch(
     <RouterView />
   </main>
 
-  <footer class="bg-[#371e58] text-white mt-">
+  <footer class="bg-[#371e58] text-white">
     <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10">
 
-      <div class="flex flex-col gap-10 md:flex-row md:items-center sm:justify-center">
-      <!-- ORGANIZADORES -->
+      <div class="flex flex-col gap-8 md:flex-row md:items-center sm:justify-center">
+      <!-- ORGANIZADORES (TEXTO Y LOGOS MÁS PEQUEÑOS PROPORCIONALMENTE) -->
       <div class="flex items-center">
-        <h3 class="pr-3">Organiza:</h3>
+        <h3 class="pr-3 text-sm font-medium text-white/80">Organiza:</h3>
 
         <div class="flex items-center">
           <img
             src="/images/valenciaNaves.png"
             alt="Organizador 1"
-            class=" object-contain w-45 h-auto mr-1 invert"
+            class="object-contain w-32 h-auto mr-1 invert opacity-90"
           />
-
           
           <img
             src="/images/logo white.png"
             alt="Organizador 2"
-            class="w-17 h-auto object-contain"
+            class="w-12 h-auto object-contain opacity-90"
           />
         </div>
       </div>
 
-      <!-- COLABORADORES -->
+      <!-- COLABORADORES (TEXTO Y LOGOS MÁS PEQUEÑOS PROPORCIONALMENTE) -->
       <div class="flex items-center">
-        <h3 class="pr-5">Colabora:</h3>
+        <h3 class="pr-4 text-sm font-medium text-white/80">Colabora:</h3>
 
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-5">
           <img
             src="/images/diputacion.svg"
             alt="Colaborador 3"
-            class="w-18 h-auto object-contain"
+            class="w-14 h-auto object-contain opacity-90"
           />
           <img
             src="/images/IVAJ.svg"
             alt="Colaborador 3"
-            class="w-15 h-auto object-contain"
+            class="w-11 h-auto object-contain opacity-90"
           />
           <img
             src="/images/turia.svg"
             alt="Colaborador 1"
-            class="w-12 h-auto object-contain"
+            class="w-9 h-auto object-contain opacity-90"
           />
 
           <img
             src="/images/coke.svg"
             alt="Colaborador 2"
-            class="w-12 h-auto object-contain"
+            class="w-9 h-auto object-contain opacity-90"
           />
         </div>
       </div>
@@ -170,9 +170,10 @@ watch(
           <a
             href="https://instagram.com"
             target="_blank"
-            class="hover:opacity-80 transition"
+            class="flex items-center gap-2 hover:opacity-80 transition hover:text-[#bcd432]"
           >
-            Instagram
+            <Instagram class="size-5" />
+            <span>@festival_esclat</span>
           </a>
         </div>
       </div>

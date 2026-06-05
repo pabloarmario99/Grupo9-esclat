@@ -14,7 +14,7 @@ const imagenesCarrusel = ref([
 
 <template>
   <div class="w-full px-6 md:px-10 lg:px-14 mt-10 sm:mt-10 md:mt-12 lg:mt-0 mb-2 sm:mb-3 md:mb-4 lg:mb-6 lg:relative">
-    <h1 class="relative z-10 pl-6 mt-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none font-medium text-left text-[#ffffff] pt-20 sm:pt-20 md:pt-20 lg:pt-24 xl:pt-28 mb-3">
+    <h1 class="relative z-10 mt-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none font-medium text-left text-[#ffffff] pt-20 sm:pt-20 md:pt-20 lg:pt-24 xl:pt-28 mb-3">
     PROGRAMACIÓN
     </h1>
   </div>
@@ -24,7 +24,7 @@ const imagenesCarrusel = ref([
       <div class="lg:w-[46%]">
         <h2 class="programa-intro-title">Tres dias para perder la nocion del tiempo</h2>
         <p class="programa-intro-text">
-          Del primer beat al ultimo cierre, cada escenario tiene su propio pulso. Recorre LAS NAVES, mezcla estilos y vive el festival a tu manera.
+          Del primer beat al ultimo cierre, cada escenario tiene su propio pulso. Recorre LAS NAVES, mezcla styles y vive el festival a tu manera.
 
 Déjate llevar las Tronkas!, La Plata o Las Petunias y talleres de ilustración, fotografía y cómic. Explora exposiciones de fanzines, torneos de videojuegos, cine y mesas redondas. Una programación ininterrumpida para exprimir el arte, la música y los puestos artísticos a tu propio ritmo.
         </p>

@@ -60,12 +60,14 @@ const aliasArtistas = new Map<string, number>([
 const aliasTalleres = new Map<string, number>([
   ["tallerdefotografia", 1],
   ["mesaredondademusica", 2],
+  ["mesaredondademusicos", 2],
   ["sesiondecine", 3],
   ["torneodevideojuegos", 4],
   ["charlasobreilustracion", 8],
   ["tallerdeceramica", 9],
   ["batalladebaile", 10],
-  ["mesaredondaartesgraficas", 6],
+  ["mesaredondaartesgraficas", 6],    // Variante 1
+  ["mesaredondadeartesgraficas", 6],  // Variante 2 (Con "de")
   ["tallerconcursodecomic", 7],
   ["mesaredondadeliteratura", 11],
 ])
@@ -102,23 +104,41 @@ const detalleLink = computed(() => {
 
   const clave = normalizarNombre(nombre)
   const evento = eventoSeleccionado.value
+  const generoNormalizado = evento?.genero ? normalizarNombre(evento.genero) : ""
 
-  if (evento?.genero === "Taller") {
-    const tallerId = aliasTalleres.get(clave) ?? mapaTalleres.value.get(clave)
+  // 1. COMPROBACIÓN DE TALLERES, MESAS REDONDAS Y ACTIVIDADES
+  // Forzamos el ID 6 si el texto contiene "artesgraficas" para asegurar que nunca falle
+  let tallerId = aliasTalleres.get(clave) ?? mapaTalleres.value.get(clave)
+  if (clave.includes("artesgraficas")) {
+    tallerId = 6
+  }
+  
+  if (
+    tallerId || 
+    generoNormalizado === "taller" || 
+    clave.includes("taller") || 
+    clave.includes("mesaredonda") || 
+    clave.includes("charla") || 
+    clave.includes("torneo") || 
+    clave.includes("sesion") ||
+    clave.includes("batalla")
+  ) {
     return tallerId
       ? { path: `/artistas/taller/${tallerId}`, label: "Ver detalles del taller" }
       : { path: "/artistas", label: "Ver talleres" }
   }
 
-  if (clave.includes("puesto") || clave.includes("puestos")) {
-    return { path: "/artistas", label: "Ver puestos" }
-  }
-
+  // 2. COMPROBACIÓN DE PUESTOS
   const puestoId = aliasPuestos.get(clave) ?? mapaPuestos.value.get(clave)
   if (puestoId) {
     return { path: `/artistas/puesto/${puestoId}`, label: "Ver detalles del puesto" }
   }
+  
+  if (generoNormalizado === "puesto" || clave.includes("puesto")) {
+    return { path: "/artistas", label: "Ver puestos" }
+  }
 
+  // 3. COMPROBACIÓN DE ARTISTAS / GRUPOS
   const artistaId = aliasArtistas.get(clave) ?? mapaArtistas.value.get(clave)
   return artistaId
     ? { path: `/artistas/${artistaId}`, label: "Ver detalles del artista" }

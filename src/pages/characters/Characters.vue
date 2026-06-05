@@ -3,10 +3,11 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="w-full mt-20 overflow-x-hidden bg-[#371e58]">
+  <!-- Ajustado a un punto medio ideal (mt-12) -->
+  <div class="w-full mt-12 overflow-x-hidden bg-[#371e58]">
     
-    <!-- SECCIÓN PRINCIPAL: HERO + BOTONES HORIZONTALES -->
-    <section class="relative bg-[#371e58] px-6 py-20 md:px-10 md:py-28 lg:px-14 lg:py-36 flex flex-col items-center justify-center text-center min-h-[70vh]">
+    <!-- Pizca más de aire vertical (pt-14 pb-20) para que respire sin irse al extremo -->
+    <section class="relative bg-[#371e58] px-6 pt-14 pb-20 md:px-10 md:pt-18 md:pb-24 lg:px-14 lg:pt-20 lg:pb-28 flex flex-col items-center justify-center text-center min-h-[65vh]">
       <!-- Estampado de fondo oficial con el mix-blend característico -->
       <img
         src="/images/estampado_esclat.png"
@@ -16,7 +17,7 @@ import { RouterLink } from 'vue-router'
       />
 
       <!-- Contenedor del Título Principal -->
-      <div class="relative z-10 mx-auto max-w-7xl w-full mb-16">
+      <div class="relative z-10 mx-auto max-w-7xl w-full mb-12">
         <h1 class="text-4xl font-medium uppercase tracking-tighter text-[#bdd434] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[7.5rem] leading-none select-none">
           ¡Conoce a nuestros<br>personajes!
         </h1>
@@ -26,33 +27,32 @@ import { RouterLink } from 'vue-router'
       <div class="relative z-10 w-full max-w-6xl mx-auto px-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full justify-items-stretch">
           
-          <!-- Cambiados los paths para que apunten al ID de la ficha de cada personaje -->
           <RouterLink 
             to="/esclat/characters/1" 
             class="festival-btn"
           >
-            Capitán Esclat
+            Clau Cassett
           </RouterLink>
 
           <RouterLink 
             to="/esclat/characters/2" 
             class="festival-btn"
           >
-            Sintetia
+            Pablo Tomo
           </RouterLink>
 
           <RouterLink 
             to="/esclat/characters/3" 
             class="festival-btn"
           >
-            Noise Boy
+            Capitán Marianas
           </RouterLink>
 
           <RouterLink 
             to="/esclat/characters/4" 
             class="festival-btn"
           >
-            Reverba
+            Martini Beat
           </RouterLink>
 
         </div>
@@ -63,29 +63,24 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped>
-/* Estilos extraídos con la línea estética exacta del festival */
 .festival-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #371e58;
+  background-color: #bdd434;
+  color: #371e58;
   border: 1px solid #bdd434;
-  padding: 1.75rem 2rem; /* py-7 px-8 aproximado */
+  padding: 1.75rem 2rem; 
   font-size: 1rem;
-  font-weight: 900; /* font-black */
+  font-weight: 900; 
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: white;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   cursor: pointer;
 }
 
-/* Efecto Hover extraído de la última sección que prefiere el fondo verde y tipografía morada */
 .festival-btn:hover {
-  background-color: #bdd434;
-  color: #371e58;
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(189, 212, 52, 0.3);
 }
 </style>

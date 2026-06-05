@@ -47,7 +47,7 @@ import { mapaHorarios } from "@/data/horariosData"
     </div>
 
         <!-- ÚLTIMA SECCIÓN MODIFICADA -->
-<div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32">
+<div class="relative flex flex-col items-center text-center bg-[#eb378d] px-6 md:px-10 lg:px-14 py-32 ">
   <img
     src="/images/estampado_esclat.png"
     alt=""
