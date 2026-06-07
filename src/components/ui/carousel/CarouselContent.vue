@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ComponentPublicInstance } from "vue"
 import type { WithClassAsProps } from "./interface"
 import { cn } from "@/lib/utils"
 import { useCarousel } from "./useCarousel"
@@ -9,12 +10,17 @@ defineOptions({
 
 const props = defineProps<WithClassAsProps>()
 
-const { carouselRef, orientation } = useCarousel()
+const carouselState = useCarousel()
+const orientation = carouselState.orientation
+
+function setCarouselRef(el: Element | ComponentPublicInstance | null) {
+  carouselState.carouselRef.value = el as HTMLElement | undefined
+}
 </script>
 
 <template>
   <div
-    ref="carouselRef"
+    :ref="setCarouselRef"
     data-slot="carousel-content"
     class="overflow-hidden"
   >
